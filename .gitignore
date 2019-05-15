@@ -1,0 +1,29 @@
+!.gitkeep
+
+# Project files
+*.ico
+!cmdFileUtility.ico
+
+
+# Project folders
+/lib/
+/backup/
+/Examples/RESULT/*
+!/Examples/RESULT/.gitkeep
+
+
+# BAT
+*.bat
+!cmdFileUtility.*.bat
+
+*.exe
+*.dbg
+*.compiled
+
+*.bak
+*.~*
+
+*.lpu
+*.ppu
+*.o
+*.or

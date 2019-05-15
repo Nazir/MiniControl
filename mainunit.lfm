@@ -1,0 +1,9 @@
+object MainForm: TMainForm
+  Left = 249
+  Height = 550
+  Top = 128
+  Width = 795
+  Caption = 'MainForm'
+  Position = poScreenCenter
+  LCLVersion = '2.0.2.0'
+end
