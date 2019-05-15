@@ -2,13 +2,27 @@ program MiniControl;
 
 {$mode objfpc}{$H+}
 
+{******************************************************************************}
+{                                                                              }
+{  Project MiniControl                                                         }
+{                                                                              }
+{  Copyright: Nazir © 2002-2019                                                }
+{  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
+{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Email: naziron@gmail.com                                                    }
+{  Git: https://github.com/Nazir                                               }
+{                                                                              }
+{  Create: 15.05.2019                                                          }
+{  Modify: 15.05.2019                                                          }
+{                                                                              }
+{******************************************************************************}
+
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, MainUnit, DataBaseUnit
-  { you can add units after this };
+  Forms, MainUnit, DataBaseUnit;
 
 {$R *.res}
 

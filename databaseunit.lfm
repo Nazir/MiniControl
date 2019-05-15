@@ -13,22 +13,16 @@ object dmDataBase: TdmDataBase
     left = 48
     top = 16
   end
-  object PQTEventMonitorMain: TPQTEventMonitor
-    Connection = PQConnectionMain
-    Registered = False
-    left = 48
-    top = 72
-  end
   object SQLQueryMain: TSQLQuery
     FieldDefs = <>
     Database = PQConnectionMain
     Transaction = SQLTransactionMain
     Params = <>
-    DataSource = dsMain
     left = 48
     top = 240
   end
   object dsMain: TDataSource
+    DataSet = SQLQueryMain
     left = 48
     top = 184
   end

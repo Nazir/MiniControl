@@ -1,9 +1,169 @@
 object MainForm: TMainForm
-  Left = 249
+  Left = 248
   Height = 550
-  Top = 128
+  Top = 143
   Width = 795
   Caption = 'MainForm'
+  ClientHeight = 530
+  ClientWidth = 795
+  Menu = mmMain
+  OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.0.2.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 507
+    Width = 795
+    Panels = <>
+  end
+  object PairSplitterMain: TPairSplitter
+    Left = 0
+    Height = 507
+    Top = 0
+    Width = 795
+    Align = alClient
+    Position = 150
+    object PairSplitterSideLeft: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 507
+      Top = 0
+      Width = 150
+      ClientWidth = 150
+      ClientHeight = 507
+      object gbTree: TGroupBox
+        Left = 0
+        Height = 507
+        Top = 0
+        Width = 185
+        Align = alLeft
+        Caption = 'gbTree'
+        ClientHeight = 487
+        ClientWidth = 181
+        TabOrder = 0
+        object tvMain: TTreeView
+          Left = 0
+          Height = 487
+          Top = 0
+          Width = 181
+          Align = alClient
+          TabOrder = 0
+        end
+      end
+    end
+    object PairSplitterSideRight: TPairSplitterSide
+      Cursor = crArrow
+      Left = 155
+      Height = 507
+      Top = 0
+      Width = 640
+      ClientWidth = 640
+      ClientHeight = 507
+      object gbData: TGroupBox
+        Left = 0
+        Height = 507
+        Top = 0
+        Width = 640
+        Align = alClient
+        Caption = 'gbData'
+        ClientHeight = 487
+        ClientWidth = 636
+        TabOrder = 0
+        object DBGridMain: TDBGrid
+          Left = 0
+          Height = 357
+          Top = 0
+          Width = 636
+          Align = alClient
+          Color = clWindow
+          Columns = <>
+          DataSource = dmDataBase.dsMain
+          ParentBiDiMode = False
+          TabOrder = 0
+          TitleImageList = ilGridTitles
+        end
+        object DBGroupBox1: TDBGroupBox
+          Left = 0
+          Height = 105
+          Top = 382
+          Width = 636
+          Align = alBottom
+          Caption = 'DBGroupBox1'
+          ClientHeight = 85
+          ClientWidth = 632
+          DataSource = dmDataBase.dsMain
+          TabOrder = 1
+          object DBText1: TDBText
+            Left = 8
+            Height = 15
+            Top = 0
+            Width = 41
+            ParentColor = False
+          end
+        end
+        object DBNavigator1: TDBNavigator
+          Left = 0
+          Height = 25
+          Top = 357
+          Width = 636
+          Align = alBottom
+          BevelOuter = bvNone
+          ChildSizing.EnlargeHorizontal = crsScaleChilds
+          ChildSizing.EnlargeVertical = crsScaleChilds
+          ChildSizing.ShrinkHorizontal = crsScaleChilds
+          ChildSizing.ShrinkVertical = crsScaleChilds
+          ChildSizing.Layout = cclLeftToRightThenTopToBottom
+          ChildSizing.ControlsPerLine = 100
+          ClientHeight = 25
+          ClientWidth = 636
+          DataSource = dmDataBase.dsMain
+          Options = []
+          TabOrder = 2
+        end
+      end
+    end
+  end
+  object mmMain: TMainMenu
+    Images = ilMain
+    left = 208
+    object miFile: TMenuItem
+      Caption = 'miFile'
+      object MenuItem2: TMenuItem
+        Action = actConnect
+      end
+    end
+  end
+  object alMain: TActionList
+    Images = ilMain
+    left = 264
+    object actConnect: TAction
+      Caption = 'actConnect'
+      OnExecute = actConnectExecute
+    end
+  end
+  object ilMain: TImageList
+    left = 320
+  end
+  object ilGridTitles: TImageList
+    left = 376
+  end
+  object PopupNotifierMain: TPopupNotifier
+    Color = clInfoBk
+    Icon.Data = {
+      07544269746D617000000000
+    }
+    Text = 'Text'
+    Title = 'Caption'
+    Visible = False
+    left = 264
+    top = 56
+  end
+  object ApplicationProperties: TApplicationProperties
+    left = 472
+  end
+  object TrayIconMain: TTrayIcon
+    OnClick = TrayIconMainClick
+    left = 564
+  end
 end

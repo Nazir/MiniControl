@@ -2,10 +2,25 @@ unit DataBaseUnit;
 
 {$mode objfpc}{$H+}
 
+{******************************************************************************}
+{                                                                              }
+{                           Database control module                            }
+{                                                                              }
+{  Copyright: Nazir © 2002-2019                                                }
+{  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
+{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Email: naziron@gmail.com                                                    }
+{  Git: https://github.com/Nazir                                               }
+{                                                                              }
+{  Create: 15.05.2019                                                          }
+{  Modify: 15.05.2019                                                          }
+{                                                                              }
+{******************************************************************************}
+
 interface
 
 uses
-  Classes, SysUtils, pqconnection, sqldb, db, PQTEventMonitor;
+  Classes, SysUtils, db, sqldb, pqconnection;
 
 type
 
@@ -14,7 +29,6 @@ type
   TdmDataBase = class(TDataModule)
     dsMain: TDataSource;
     PQConnectionMain: TPQConnection;
-    PQTEventMonitorMain: TPQTEventMonitor;
     SQLQueryMain: TSQLQuery;
     SQLTransactionMain: TSQLTransaction;
   private
@@ -29,6 +43,8 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TdmDataBase }
 
 end.
 
