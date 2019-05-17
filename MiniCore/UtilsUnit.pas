@@ -6,9 +6,9 @@ unit UtilsUnit;
 {                                                                              }
 { Unit: Utils                                                                  }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir В© 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
-{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РҐСѓСЃРЅСѓС‚РґРёРЅРѕРІ РќР°Р·РёСЂ РљР°СЂРёРјРѕРІРёС‡                                    }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
@@ -37,65 +37,65 @@ const
 
   procedure CodeBuf(Buf: Pointer; Len: Integer; Key: Integer);
   procedure DeCodeBuf(Buf: Pointer; Len: Integer; Key: Integer);
-  // Расшифровка строки по ключу
+  // Р Р°СЃС€РёС„СЂРѕРІРєР° СЃС‚СЂРѕРєРё РїРѕ РєР»СЋС‡Сѓ
   function DeCoderString(str: string; key: integer): string;
 
-  // Полное удаление директории с покаталогами и файлами
+  // РџРѕР»РЅРѕРµ СѓРґР°Р»РµРЅРёРµ РґРёСЂРµРєС‚РѕСЂРёРё СЃ РїРѕРєР°С‚Р°Р»РѕРіР°РјРё Рё С„Р°Р№Р»Р°РјРё
   function FullRemoveDir(Dir: string; DeleteAllFilesAndFolders,
                          StopIfNotAllDeleted, RemoveRoot: boolean): Boolean;
 
-  // Определить, находится ли файл в использовании
+  // РћРїСЂРµРґРµР»РёС‚СЊ, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё С„Р°Р№Р» РІ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё
   function IsFileInUse(FileName: TFileName): Boolean;
-  // Проверка на необходимые файлы для программы
+  // РџСЂРѕРІРµСЂРєР° РЅР° РЅРµРѕР±С…РѕРґРёРјС‹Рµ С„Р°Р№Р»С‹ РґР»СЏ РїСЂРѕРіСЂР°РјРјС‹
   function CheckNeededFiles(AHandle: Integer = 0): Boolean;
 
-  // Заменяет в AText все строки из списка AOldPattern на ANewPattern
+  // Р—Р°РјРµРЅСЏРµС‚ РІ AText РІСЃРµ СЃС‚СЂРѕРєРё РёР· СЃРїРёСЃРєР° AOldPattern РЅР° ANewPattern
   function ReplaceTagsInText(AText: string;
     AOldPattern, ANewPattern: TStrings): string;
 
-  //Название месяца
+  //РќР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р°
   function MonthName(ANumber: Integer; APlural: Boolean = True): string;
-  // Длинная дата
+  // Р”Р»РёРЅРЅР°СЏ РґР°С‚Р°
   function LongDate(ADate: TDateTime): string;
 
-  // Перевод типа Boolean в строку
+  // РџРµСЂРµРІРѕРґ С‚РёРїР° Boolean РІ СЃС‚СЂРѕРєСѓ
   function BooleanToString(ABoolean: Boolean; AUseBoolStrs: Boolean = False): string;
   function IntToBoolean(AValue: Integer): Boolean;
   function BooleanToInt(AValue: Boolean): Integer;
 
-  //// Получение списка GUID'ов по категории
+  //// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° GUID'РѕРІ РїРѕ РєР°С‚РµРіРѕСЂРёРё
   //function Get_CATID_List(ACATID: TGUID; AUseDisabled: Boolean = True): TStrings;
 
-  // Сохранения текста в файл
+  // РЎРѕС…СЂР°РЅРµРЅРёСЏ С‚РµРєСЃС‚Р° РІ С„Р°Р№Р»
   procedure SaveTextToFile(AFileName, AText: string; AMethod: Integer = 0; AMaxFileSize: Integer = 31457280 {30 Mb});
-  // Загрузка текста из файла
+  // Р—Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚Р° РёР· С„Р°Р№Р»Р°
   function LoadTextFromFile(AFileName: string): string;
 
-  // Получение строки со случайными байтами
+  // РџРѕР»СѓС‡РµРЅРёРµ СЃС‚СЂРѕРєРё СЃРѕ СЃР»СѓС‡Р°Р№РЅС‹РјРё Р±Р°Р№С‚Р°РјРё
   function GetRandomString(ALength: Integer = 16): string;
 
-  // Внутренний парсер настроек
+  // Р’РЅСѓС‚СЂРµРЅРЅРёР№ РїР°СЂСЃРµСЂ РЅР°СЃС‚СЂРѕРµРє
   function SettingsParser(ASettings, ASection, AIdent: string): string;
   function GetFilesList(AFindMask: string): string;
 
-  //// Переключение языков
+  //// РџРµСЂРµРєР»СЋС‡РµРЅРёРµ СЏР·С‹РєРѕРІ
   //procedure SetKeyboardLayoutRU;
   //procedure SetKeyboardLayoutEN;
-  // имя, идентифицирующее компьютер в сети
+  // РёРјСЏ, РёРґРµРЅС‚РёС„РёС†РёСЂСѓСЋС‰РµРµ РєРѕРјРїСЊСЋС‚РµСЂ РІ СЃРµС‚Рё
   function GetComputerNetName: string;
-  //Возвращает логин пользователя в текущем сеансе.
+  //Р’РѕР·РІСЂР°С‰Р°РµС‚ Р»РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ С‚РµРєСѓС‰РµРј СЃРµР°РЅСЃРµ.
   function GetStrUserName: string;
   //
   procedure CastVariantToArray(const KeyValues:Variant; var VarArray: TDynArray);
 
-  // Конвертация денежных сумм в строковое выражение
+  // РљРѕРЅРІРµСЂС‚Р°С†РёСЏ РґРµРЅРµР¶РЅС‹С… СЃСѓРјРј РІ СЃС‚СЂРѕРєРѕРІРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ
   function MoneyToStr(DD: string): string;
 
-  // Объединиение строки ACount раз с раделителем ADivider    <15.10.2009>
+  // РћР±СЉРµРґРёРЅРёРµРЅРёРµ СЃС‚СЂРѕРєРё ACount СЂР°Р· СЃ СЂР°РґРµР»РёС‚РµР»РµРј ADivider    <15.10.2009>
   function MultipleConcat(AStr: string; ACount: Integer; ADivider: string = ''): string;
 
   function GetFileDate(AFileName: string; ADefault: TDateTime = 0): TDateTime;
-  // Дата последнего изменения файла
+  // Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ С„Р°Р№Р»Р°
 
   function SetFileDate(const AFileName : string; const AFileDate : TDateTime): Boolean;
 
@@ -106,22 +106,22 @@ const
   function GetStrFromMinute(AMinute: Integer): string;
   function MinutsToTime(AMinutes: Integer; ASeconds: Boolean = True): string;
   function DirSize(Dir: string): Integer;
-  // Переменные среды
+  // РџРµСЂРµРјРµРЅРЅС‹Рµ СЃСЂРµРґС‹
   function GetEnvironmentVariableString(AName: string): string;
-  // Поиск файлов по маске по всему дереву каталогов, начиная с указанного
+  // РџРѕРёСЃРє С„Р°Р№Р»РѕРІ РїРѕ РјР°СЃРєРµ РїРѕ РІСЃРµРјСѓ РґРµСЂРµРІСѓ РєР°С‚Р°Р»РѕРіРѕРІ, РЅР°С‡РёРЅР°СЏ СЃ СѓРєР°Р·Р°РЅРЅРѕРіРѕ
   procedure FindFiles(AStartFolder, AMask: string; AList: TStringList;
   AScanSubFolders: Boolean = True);
   function GetQuarter(AMonth: Integer): Integer;
-  // Получение квартала по месяцу
+  // РџРѕР»СѓС‡РµРЅРёРµ РєРІР°СЂС‚Р°Р»Р° РїРѕ РјРµСЃСЏС†Сѓ
   function arCyr2LatUp(AStr: string; ASpaceCharacter: string = ' ';
     APointCharacter: string = '.'): string;
-  //Переводит строку на заглавные буквы, а далее с кирилицы на латиницу
+  //РџРµСЂРµРІРѕРґРёС‚ СЃС‚СЂРѕРєСѓ РЅР° Р·Р°РіР»Р°РІРЅС‹Рµ Р±СѓРєРІС‹, Р° РґР°Р»РµРµ СЃ РєРёСЂРёР»РёС†С‹ РЅР° Р»Р°С‚РёРЅРёС†Сѓ
   function FileCreationDate(const FileName: string): Integer;
-  // Дата создания файла
+  // Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р°
   function FileLastWriteDate(const FileName: string): Integer;
-  // Дата последнего изменения файла
+  // Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ С„Р°Р№Р»Р°
   function FileLastAccessDate(const FileName: string): Integer;
-  // Дата последнего открытия файла
+  // Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°
 
   function GetSpecialPath(CSIDL: Word): string;
 
@@ -134,7 +134,7 @@ const
                            AArguments: string = '';
                            AIconPath: string = ''; AIconIndex: Integer = 0);
 
-  // Диалог выбора папки
+  // Р”РёР°Р»РѕРі РІС‹Р±РѕСЂР° РїР°РїРєРё
   function BrowseDialog(const Title: string; const Flag: Integer; AHandle: THandle; AInitFolder: string = ''): string;
   function BrowseDialogExtra(AHandle: THandle; const ATitle: string; AInitFolder: string = ''): string;
 
@@ -198,18 +198,18 @@ begin
   if not DirectoryExists(Dir) then
     exit;
   Result := True;
-  // Добавляем слэш в конце и задаем маску - "все файлы и директории"
+  // Р”РѕР±Р°РІР»СЏРµРј СЃР»СЌС€ РІ РєРѕРЅС†Рµ Рё Р·Р°РґР°РµРј РјР°СЃРєСѓ - "РІСЃРµ С„Р°Р№Р»С‹ Рё РґРёСЂРµРєС‚РѕСЂРёРё"
   Dir := IncludeTrailingBackslash(Dir);
   i := FindFirst(Dir + '*', faAnyFile, SRec);
   try
     while i = 0 do
     begin
-      // Получаем полный путь к файлу или директорию
+      // РџРѕР»СѓС‡Р°РµРј РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РёР»Рё РґРёСЂРµРєС‚РѕСЂРёСЋ
       FN := Dir + SRec.Name;
-      // Если это директория
+      // Р•СЃР»Рё СЌС‚Рѕ РґРёСЂРµРєС‚РѕСЂРёСЏ
       if SRec.Attr = faDirectory then
       begin
-        // Рекурсивный вызов этой же функции с ключом удаления корня
+        // Р РµРєСѓСЂСЃРёРІРЅС‹Р№ РІС‹Р·РѕРІ СЌС‚РѕР№ Р¶Рµ С„СѓРЅРєС†РёРё СЃ РєР»СЋС‡РѕРј СѓРґР°Р»РµРЅРёСЏ РєРѕСЂРЅСЏ
         if (SRec.Name <> '') and (SRec.Name <> '.') and (SRec.Name <> '..') then
         begin
           if DeleteAllFilesAndFolders then
@@ -220,7 +220,7 @@ begin
             exit;
         end;
       end
-      else // Иначе удаляем файл
+      else // РРЅР°С‡Рµ СѓРґР°Р»СЏРµРј С„Р°Р№Р»
       begin
         if DeleteAllFilesAndFolders then
           FileSetAttr(FN, faArchive);
@@ -228,7 +228,7 @@ begin
         if not Result and StopIfNotAllDeleted then
           exit;
       end;
-      // Берем следующий файл или директорию
+      // Р‘РµСЂРµРј СЃР»РµРґСѓСЋС‰РёР№ С„Р°Р№Р» РёР»Рё РґРёСЂРµРєС‚РѕСЂРёСЋ
       i := FindNext(SRec);
     end;
   finally
@@ -236,14 +236,14 @@ begin
   end;
   if not Result then
     exit;
-  if RemoveRoot then // Если необходимо удалить корень - удаляем
+  if RemoveRoot then // Р•СЃР»Рё РЅРµРѕР±С…РѕРґРёРјРѕ СѓРґР°Р»РёС‚СЊ РєРѕСЂРµРЅСЊ - СѓРґР°Р»СЏРµРј
     if not RemoveDir(Dir) then
       Result := false;
 end;
 {$WARNINGS ON}
 
 function IsFileInUse(FileName: TFileName): Boolean;
-// Определить, находится ли файл в использовании
+// РћРїСЂРµРґРµР»РёС‚СЊ, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё С„Р°Р№Р» РІ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё
 var
  FS: TFileStream;
 begin
@@ -256,7 +256,7 @@ begin
 end;
 
 function CheckNeededFiles(AHandle: Integer = 0): Boolean;
-// Проверка на наличие необходимых файлов для программы
+// РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РЅРµРѕР±С…РѕРґРёРјС‹С… С„Р°Р№Р»РѕРІ РґР»СЏ РїСЂРѕРіСЂР°РјРјС‹
 var
   slTemp: TStrings;
   sTemp: string;
@@ -281,15 +281,15 @@ begin
 
   if sTemp <> '' then
   begin
-    MessageBox(AHandle, PChar('Отсутствуют необходимые файлы: '#13#10 +  sTemp),
-               'Предупреждение', MB_OK or MB_ICONEXCLAMATION);
+    MessageBox(AHandle, PChar('РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРµРѕР±С…РѕРґРёРјС‹Рµ С„Р°Р№Р»С‹: '#13#10 +  sTemp),
+               'РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ', MB_OK or MB_ICONEXCLAMATION);
     Result := False;
   end;
 end;
 
 function ReplaceTagsInText(AText: string;
   AOldPattern, ANewPattern: TStrings): string;
-// Заменяет в AText все строки из списка AOldPattern на ANewPattern
+// Р—Р°РјРµРЅСЏРµС‚ РІ AText РІСЃРµ СЃС‚СЂРѕРєРё РёР· СЃРїРёСЃРєР° AOldPattern РЅР° ANewPattern
 var
   iCounter, iTagsCount: Integer;
   sTemp: string;
@@ -308,43 +308,43 @@ begin
 end;
 
 function MonthName(ANumber: Integer; APlural: Boolean = True): string;
-//Название месяца
+//РќР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р°
 begin
   Result := EmptyStr;
   if APlural then
   case ANumber of
-    1: Result := 'января';
-    2: Result := 'февраля';
-    3: Result := 'марта';
-    4: Result := 'апреля';
-    5: Result := 'мая';
-    6: Result := 'июня';
-    7: Result := 'июля';
-    8: Result := 'августа';
-    9: Result := 'сентября';
-    10: Result := 'октября';
-    11: Result := 'ноября';
-    12: Result := 'декабря';
+    1: Result := 'СЏРЅРІР°СЂСЏ';
+    2: Result := 'С„РµРІСЂР°Р»СЏ';
+    3: Result := 'РјР°СЂС‚Р°';
+    4: Result := 'Р°РїСЂРµР»СЏ';
+    5: Result := 'РјР°СЏ';
+    6: Result := 'РёСЋРЅСЏ';
+    7: Result := 'РёСЋР»СЏ';
+    8: Result := 'Р°РІРіСѓСЃС‚Р°';
+    9: Result := 'СЃРµРЅС‚СЏР±СЂСЏ';
+    10: Result := 'РѕРєС‚СЏР±СЂСЏ';
+    11: Result := 'РЅРѕСЏР±СЂСЏ';
+    12: Result := 'РґРµРєР°Р±СЂСЏ';
   end
   else
   case ANumber of
-    1: Result := 'январь';
-    2: Result := 'февраль';
-    3: Result := 'март';
-    4: Result := 'апрель';
-    5: Result := 'май';
-    6: Result := 'июнь';
-    7: Result := 'июль';
-    8: Result := 'август';
-    9: Result := 'сентябрь';
-    10: Result := 'октябрь';
-    11: Result := 'ноябрь';
-    12: Result := 'декабрь';
+    1: Result := 'СЏРЅРІР°СЂСЊ';
+    2: Result := 'С„РµРІСЂР°Р»СЊ';
+    3: Result := 'РјР°СЂС‚';
+    4: Result := 'Р°РїСЂРµР»СЊ';
+    5: Result := 'РјР°Р№';
+    6: Result := 'РёСЋРЅСЊ';
+    7: Result := 'РёСЋР»СЊ';
+    8: Result := 'Р°РІРіСѓСЃС‚';
+    9: Result := 'СЃРµРЅС‚СЏР±СЂСЊ';
+    10: Result := 'РѕРєС‚СЏР±СЂСЊ';
+    11: Result := 'РЅРѕСЏР±СЂСЊ';
+    12: Result := 'РґРµРєР°Р±СЂСЊ';
   end
 end;
 
 function LongDate(ADate: TDateTime): string;
-//Длинная дата
+//Р”Р»РёРЅРЅР°СЏ РґР°С‚Р°
 begin
   Result := IntToStr(DayOf(ADate)) + ' ' + MonthName(MonthOf(ADate)) + ' ' + IntToStr(YearOf(ADate));
 end;
@@ -425,7 +425,7 @@ end;
 //end;
 
 procedure SaveTextToFile(AFileName, AText: string; AMethod: Integer = 0; AMaxFileSize: Integer = 31457280 {30 Mb});
-// Сохранения текста в файл
+// РЎРѕС…СЂР°РЅРµРЅРёСЏ С‚РµРєСЃС‚Р° РІ С„Р°Р№Р»
 var
   fFile: TextFile;
   bFile: file of Byte;
@@ -459,15 +459,15 @@ begin
     end;
 
     case AMethod of
-      0: // Запись AText в новый файл
+      0: // Р—Р°РїРёСЃСЊ AText РІ РЅРѕРІС‹Р№ С„Р°Р№Р»
       begin
         Write(fFile, AText);
       end;
-      1: // Запись AText в открытый файл
+      1: // Р—Р°РїРёСЃСЊ AText РІ РѕС‚РєСЂС‹С‚С‹Р№ С„Р°Р№Р»
       begin
         Write(fFile, AText);
       end;
-      2: // Вставка AText в открытый файл
+      2: // Р’СЃС‚Р°РІРєР° AText РІ РѕС‚РєСЂС‹С‚С‹Р№ С„Р°Р№Р»
       begin
         WriteLn(fFile, AText);
       end;
@@ -480,7 +480,7 @@ begin
 end;
 
 function LoadTextFromFile(AFileName: string): string;
-// Загрузка текста из файла
+// Р—Р°РіСЂСѓР·РєР° С‚РµРєСЃС‚Р° РёР· С„Р°Р№Р»Р°
 var
   slTemp: TStrings;
 begin
@@ -574,7 +574,7 @@ end;
 //end;
 
 function GetComputerNetName: string;
-// имя, идентифицирующее компьютер в сети
+// РёРјСЏ, РёРґРµРЅС‚РёС„РёС†РёСЂСѓСЋС‰РµРµ РєРѕРјРїСЊСЋС‚РµСЂ РІ СЃРµС‚Рё
 var
   {$if defined(Windows)}
   c: array[0..127] of Char;
@@ -603,7 +603,7 @@ begin
 end;
 
 function GetStrUserName : string;
-//Возвращает логин пользователя в текущем сеансе.
+//Р’РѕР·РІСЂР°С‰Р°РµС‚ Р»РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ С‚РµРєСѓС‰РµРј СЃРµР°РЅСЃРµ.
 var
   lwLen : Longword;
 begin
@@ -629,7 +629,7 @@ end;
 
 {$WARNINGS OFF}
 function MoneyToStr(DD: string): string;
-// Конвертация денежных сумм в строковое выражение
+// РљРѕРЅРІРµСЂС‚Р°С†РёСЏ РґРµРЅРµР¶РЅС‹С… СЃСѓРјРј РІ СЃС‚СЂРѕРєРѕРІРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ
 type
   TTroyka = array[1..3] of Byte;
   TMyString = array[1..19] of string[12];
@@ -641,31 +641,31 @@ var
   Mb: Byte;
 const
   V11: TMyString =
-  ('один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять',
-    'десять', 'одиннадцать',
-    'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать',
-      'семнадцать', 'восемнадцать', 'девятнадцать');
+  ('РѕРґРёРЅ', 'РґРІР°', 'С‚СЂРё', 'С‡РµС‚С‹СЂРµ', 'РїСЏС‚СЊ', 'С€РµСЃС‚СЊ', 'СЃРµРјСЊ', 'РІРѕСЃРµРјСЊ', 'РґРµРІСЏС‚СЊ',
+    'РґРµСЃСЏС‚СЊ', 'РѕРґРёРЅРЅР°РґС†Р°С‚СЊ',
+    'РґРІРµРЅР°РґС†Р°С‚СЊ', 'С‚СЂРёРЅР°РґС†Р°С‚СЊ', 'С‡РµС‚С‹СЂРЅР°РґС†Р°С‚СЊ', 'РїСЏС‚РЅР°РґС†Р°С‚СЊ', 'С€РµСЃС‚РЅР°РґС†Р°С‚СЊ',
+      'СЃРµРјРЅР°РґС†Р°С‚СЊ', 'РІРѕСЃРµРјРЅР°РґС†Р°С‚СЊ', 'РґРµРІСЏС‚РЅР°РґС†Р°С‚СЊ');
   V2: array[1..8] of string =
-  ('двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят',
-    'восемьдесят', 'девяносто');
+  ('РґРІР°РґС†Р°С‚СЊ', 'С‚СЂРёРґС†Р°С‚СЊ', 'СЃРѕСЂРѕРє', 'РїСЏС‚СЊРґРµСЃСЏС‚', 'С€РµСЃС‚СЊРґРµСЃСЏС‚', 'СЃРµРјСЊРґРµСЃСЏС‚',
+    'РІРѕСЃРµРјСЊРґРµСЃСЏС‚', 'РґРµРІСЏРЅРѕСЃС‚Рѕ');
   V3: array[1..9] of string =
-  ('сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот',
-    'восемьсот', 'девятьсот');
-  M1: array[1..13, 1..3] of string = (('тысяча', 'тысячи', 'тысяч'),
-    ('миллион', 'миллиона', 'миллионов'),
-    ('миллиард', 'миллиарда', 'миллиардов'),
-    ('триллион', 'триллиона', 'триллионов'),
-    ('квадриллион', 'квадриллиона', 'квадриллионов'),
-    ('квинтиллион', 'квинтиллиона', 'квинтиллионов'),
-    ('секстиллион', 'секстиллиона', 'секстиллионов'),
-    ('сентиллион', 'сентиллиона', 'сентиллионов'),
-    ('октиллион', 'октиллиона', 'октиллионов'),
-    ('нониллион', 'нониллиона', 'нониллионов'),
-    ('дециллион', 'дециллиона', 'дециллионов'),
-    ('ундециллион', 'ундециллиона', 'ундециллионов'),
-    ('додециллион', 'додециллиона', 'додециллионов'));
-  R1: array[1..3] of string = ('рубль', 'рубля', 'рублей');
-  R2: array[1..3] of string = ('копейка', 'копейки', 'копеек');
+  ('СЃС‚Рѕ', 'РґРІРµСЃС‚Рё', 'С‚СЂРёСЃС‚Р°', 'С‡РµС‚С‹СЂРµСЃС‚Р°', 'РїСЏС‚СЊСЃРѕС‚', 'С€РµСЃС‚СЊСЃРѕС‚', 'СЃРµРјСЊСЃРѕС‚',
+    'РІРѕСЃРµРјСЊСЃРѕС‚', 'РґРµРІСЏС‚СЊСЃРѕС‚');
+  M1: array[1..13, 1..3] of string = (('С‚С‹СЃСЏС‡Р°', 'С‚С‹СЃСЏС‡Рё', 'С‚С‹СЃСЏС‡'),
+    ('РјРёР»Р»РёРѕРЅ', 'РјРёР»Р»РёРѕРЅР°', 'РјРёР»Р»РёРѕРЅРѕРІ'),
+    ('РјРёР»Р»РёР°СЂРґ', 'РјРёР»Р»РёР°СЂРґР°', 'РјРёР»Р»РёР°СЂРґРѕРІ'),
+    ('С‚СЂРёР»Р»РёРѕРЅ', 'С‚СЂРёР»Р»РёРѕРЅР°', 'С‚СЂРёР»Р»РёРѕРЅРѕРІ'),
+    ('РєРІР°РґСЂРёР»Р»РёРѕРЅ', 'РєРІР°РґСЂРёР»Р»РёРѕРЅР°', 'РєРІР°РґСЂРёР»Р»РёРѕРЅРѕРІ'),
+    ('РєРІРёРЅС‚РёР»Р»РёРѕРЅ', 'РєРІРёРЅС‚РёР»Р»РёРѕРЅР°', 'РєРІРёРЅС‚РёР»Р»РёРѕРЅРѕРІ'),
+    ('СЃРµРєСЃС‚РёР»Р»РёРѕРЅ', 'СЃРµРєСЃС‚РёР»Р»РёРѕРЅР°', 'СЃРµРєСЃС‚РёР»Р»РёРѕРЅРѕРІ'),
+    ('СЃРµРЅС‚РёР»Р»РёРѕРЅ', 'СЃРµРЅС‚РёР»Р»РёРѕРЅР°', 'СЃРµРЅС‚РёР»Р»РёРѕРЅРѕРІ'),
+    ('РѕРєС‚РёР»Р»РёРѕРЅ', 'РѕРєС‚РёР»Р»РёРѕРЅР°', 'РѕРєС‚РёР»Р»РёРѕРЅРѕРІ'),
+    ('РЅРѕРЅРёР»Р»РёРѕРЅ', 'РЅРѕРЅРёР»Р»РёРѕРЅР°', 'РЅРѕРЅРёР»Р»РёРѕРЅРѕРІ'),
+    ('РґРµС†РёР»Р»РёРѕРЅ', 'РґРµС†РёР»Р»РёРѕРЅР°', 'РґРµС†РёР»Р»РёРѕРЅРѕРІ'),
+    ('СѓРЅРґРµС†РёР»Р»РёРѕРЅ', 'СѓРЅРґРµС†РёР»Р»РёРѕРЅР°', 'СѓРЅРґРµС†РёР»Р»РёРѕРЅРѕРІ'),
+    ('РґРѕРґРµС†РёР»Р»РёРѕРЅ', 'РґРѕРґРµС†РёР»Р»РёРѕРЅР°', 'РґРѕРґРµС†РёР»Р»РёРѕРЅРѕРІ'));
+  R1: array[1..3] of string = ('СЂСѓР±Р»СЊ', 'СЂСѓР±Р»СЏ', 'СЂСѓР±Р»РµР№');
+  R2: array[1..3] of string = ('РєРѕРїРµР№РєР°', 'РєРѕРїРµР№РєРё', 'РєРѕРїРµРµРє');
   function TroykaToStr(L: ShortInt; TR: TTroyka): string;
   var
     S: string;
@@ -673,13 +673,13 @@ const
     S := '';
     if Abs(L) = 1 then
     begin
-      V1[1] := 'одна';
-      V1[2] := 'две';
+      V1[1] := 'РѕРґРЅР°';
+      V1[2] := 'РґРІРµ';
     end
     else
     begin
-      V1[1] := 'один';
-      V1[2] := 'два';
+      V1[1] := 'РѕРґРёРЅ';
+      V1[2] := 'РґРІР°';
     end;
     if Troyka[2] = 1 then
     begin
@@ -758,13 +758,13 @@ begin
       S := R2[3];
     end;
   end;
-  // MoneyToStr:=OutS+IntToStr(k)+' '+S; // если копейки нужны цифрой-эту строку раскоментировать
-  MoneyToStr := OutS + S2 + ' ' + S; // а эту закоментировать
+  // MoneyToStr:=OutS+IntToStr(k)+' '+S; // РµСЃР»Рё РєРѕРїРµР№РєРё РЅСѓР¶РЅС‹ С†РёС„СЂРѕР№-СЌС‚Сѓ СЃС‚СЂРѕРєСѓ СЂР°СЃРєРѕРјРµРЅС‚РёСЂРѕРІР°С‚СЊ
+  MoneyToStr := OutS + S2 + ' ' + S; // Р° СЌС‚Сѓ Р·Р°РєРѕРјРµРЅС‚РёСЂРѕРІР°С‚СЊ
 end;
 {$WARNINGS ON}
 
 function MultipleConcat(AStr: string; ACount: Integer; ADivider: string = ''): string;
-// Объединиение строки ACount раз с раделителем ADivider    <15.10.2009>
+// РћР±СЉРµРґРёРЅРёРµРЅРёРµ СЃС‚СЂРѕРєРё ACount СЂР°Р· СЃ СЂР°РґРµР»РёС‚РµР»РµРј ADivider    <15.10.2009>
 var
   iCounter: Integer;
 begin
@@ -781,7 +781,7 @@ begin
 end;
 
 function GetFileDate(AFileName: string; ADefault: TDateTime = 0): TDateTime;
-// Дата последнего изменения файла <19.10.2009> WP
+// Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ С„Р°Р№Р»Р° <19.10.2009> WP
 var
   FHandle: Integer;
 begin
@@ -855,7 +855,7 @@ begin
 //  AStr := StringReplace(AStr, ':', '.', []);
   sTemp := StringReplace(sTemp, ' ', '0', [rfReplaceAll]);
   sTemp := InsSymToStr(sTemp, 5);
-  //  4,17 ОШИБКА 4,18
+  //  4,17 РћРЁРР‘РљРђ 4,18
   //Insert(DecimalSeparator, sTemp, 4);
   //eTemp := StrToFloatDef(sTemp, 0.0);
   iTemp := StrToIntDef(sTemp, 0);
@@ -897,7 +897,7 @@ begin
 end;
 
 function DirSize(Dir: string): Integer;
-// Как подсчитать занимаемое директорией место
+// РљР°Рє РїРѕРґСЃС‡РёС‚Р°С‚СЊ Р·Р°РЅРёРјР°РµРјРѕРµ РґРёСЂРµРєС‚РѕСЂРёРµР№ РјРµСЃС‚Рѕ
 var
   SearchRec: TSearchRec;
   Separator: string;
@@ -933,11 +933,11 @@ end;
 
 
 function GetEnvironmentVariableString(AName: string): string;
-// Переменные среды
+// РџРµСЂРµРјРµРЅРЅС‹Рµ СЃСЂРµРґС‹
 var
   cResult: Cardinal;
 begin
-  // Например AName = 'USERPROFILE'
+  // РќР°РїСЂРёРјРµСЂ AName = 'USERPROFILE'
   Result := EmptyStr;
   if AName = EmptyStr then
     Exit;
@@ -963,10 +963,10 @@ end;
 procedure FindFiles(AStartFolder, AMask: string; AList: TStringList;
   AScanSubFolders: Boolean = True);
 {
-Зависимости: Windows, SysUtils, Classes, Masks
-Автор:       Dimka Maslov, mainbox@endimus.ru, ICQ:148442121, Санкт-Петербург
+Р—Р°РІРёСЃРёРјРѕСЃС‚Рё: Windows, SysUtils, Classes, Masks
+РђРІС‚РѕСЂ:       Dimka Maslov, mainbox@endimus.ru, ICQ:148442121, РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі
 Copyright:   Dimka Maslov
-Дата:        29 апреля 2002 г.
+Р”Р°С‚Р°:        29 Р°РїСЂРµР»СЏ 2002 Рі.
 }
 var
   SearchRec: TSearchRec;
@@ -1006,7 +1006,7 @@ begin
 end;
 
 function GetQuarter(AMonth: Integer): Integer;
-// Получение квартала по месяцу
+// РџРѕР»СѓС‡РµРЅРёРµ РєРІР°СЂС‚Р°Р»Р° РїРѕ РјРµСЃСЏС†Сѓ
 begin
   case AMonth of
     1..3: Result := 1;
@@ -1020,10 +1020,10 @@ end;
 
 function arCyr2LatUp(AStr: string; ASpaceCharacter: string = ' ';
   APointCharacter: string = '.'): string;
-//Переводит строку на заглавные буквы, а далее с кирилицы на латиницу
+//РџРµСЂРµРІРѕРґРёС‚ СЃС‚СЂРѕРєСѓ РЅР° Р·Р°РіР»Р°РІРЅС‹Рµ Р±СѓРєРІС‹, Р° РґР°Р»РµРµ СЃ РєРёСЂРёР»РёС†С‹ РЅР° Р»Р°С‚РёРЅРёС†Сѓ
 // http://www.sql.ru/forum/actualutils.aspx?action=gotomsg&tid=749043&msg=8594543
 const
-  Rus= 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+  Rus= 'РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћРџР РЎРўРЈР¤РҐР¦Р§РЁР©РЄР«Р¬Р­Р®РЇ';
   Lat= 'ABVGDEYZZIYKLMNOPRSTUFKTCSS Y EYY';
   Lat2='      OH              HSHHH    UA';
   Lat3='                          C      ';
@@ -1047,7 +1047,7 @@ begin
 end;
 
 function FileCreationDate(const FileName: string): Integer;
-// Дата создания файла
+// Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р°
 var
   Handle: THandle;
   FindData: TWin32FindData;
@@ -1068,7 +1068,7 @@ begin
 end;
 
 function FileLastWriteDate(const FileName: string): Integer;
-// Дата последнего изменения файла
+// Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ С„Р°Р№Р»Р°
 // <18.07.2012> WP Nazir
 var
   Handle: THandle;
@@ -1090,7 +1090,7 @@ begin
 end;
 
 function FileLastAccessDate(const FileName: string): Integer;
-// Дата последнего открытия файла
+// Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°
 // <18.07.2012> WP Nazir
 var
   Handle: THandle;
@@ -1112,7 +1112,7 @@ begin
 end;
 
 function GetSpecialPath(CSIDL: word): string;
-// Специальные (стандартные) папки ОС
+// РЎРїРµС†РёР°Р»СЊРЅС‹Рµ (СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ) РїР°РїРєРё РћРЎ
 var s:  string;
 //<04.12.2012> WP Nazir
 // uses ShlObj;
@@ -1188,7 +1188,7 @@ begin
   if ADescription = '' then
   begin
     APathLink := APathLink + ExtractFileName(PathObj);
-    ADescription := 'Ярлык ' + ExtractFileName(PathObj);
+    ADescription := 'РЇСЂР»С‹Рє ' + ExtractFileName(PathObj);
   end
   else
     APathLink := APathLink + ADescription;
@@ -1222,7 +1222,7 @@ begin
 end; (*BrowseDialogCallBack*)
 
 function BrowseDialog(const Title: string; const Flag: Integer; AHandle: THandle; AInitFolder: string = ''): string;
-// Диалог выбора папки
+// Р”РёР°Р»РѕРі РІС‹Р±РѕСЂР° РїР°РїРєРё
 var
   lpItemID : PItemIDList;
   BrowseInfo : TBrowseInfo;
