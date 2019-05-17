@@ -6,9 +6,9 @@ unit GlobalsUnit;
 {                                                                              }
 { Unit: Global declarations                                                    }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir В© 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
-{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РҐСѓСЃРЅСѓС‚РґРёРЅРѕРІ РќР°Р·РёСЂ РљР°СЂРёРјРѕРІРёС‡                                    }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
@@ -58,7 +58,7 @@ uses
 
 procedure TdmGlobals.DataModuleCreate(Sender: TObject);
 begin
-  PopupNotifierMain.Title := 'Информация';
+  PopupNotifierMain.Title := 'РРЅС„РѕСЂРјР°С†РёСЏ';
 end;
 
 procedure TdmGlobals.ApplicationEventsException(Sender: TObject;
@@ -67,11 +67,11 @@ begin
   SaveLogToFile('Application', E.Message, 'err');
   if E is EAccessViolation then
   begin
-    ShowMessageForm('Критическая ошибка', 2, 'Желательно перезапустить программу!'#13#10 + E.Message);
+    ShowMessageForm('РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°', 2, 'Р–РµР»Р°С‚РµР»СЊРЅРѕ РїРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ!'#13#10 + E.Message);
     //MessageBox(0, PChar(),, MB_OK or MB_ICONERROR);
   end
   else
-    ShowMessageForm('Ошибка', 2, E.Message);
+    ShowMessageForm('РћС€РёР±РєР°', 2, E.Message);
 end;
 
 procedure TdmGlobals.CallHelp;
@@ -82,7 +82,7 @@ begin
   if FileExists(PathHelp + sTemp) then
      OpenDocument(PChar(PathHelp + sTemp)) { *Converted from ShellExecute* }
   else
-    MessageBox(Application.MainForm.Handle, 'Файл со справкой не обнаружен!',
+    MessageBox(Application.MainForm.Handle, 'Р¤Р°Р№Р» СЃРѕ СЃРїСЂР°РІРєРѕР№ РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅ!',
                MSG_Information, MB_OK_INFO);
 end;
 
@@ -135,7 +135,7 @@ begin
   with NotepadForm do
   try
     Name := 'NotepadForm';
-    Caption := 'Блокнот - ' + AFileName;
+    Caption := 'Р‘Р»РѕРєРЅРѕС‚ - ' + AFileName;
     Position := poOwnerFormCenter;
     //BorderStyle := bsSizeable;
     Width := 750;
@@ -167,22 +167,22 @@ begin
     end;
     with Panels.Add do
     begin
-      Text := 'Роль: ' + Trim(CurrentUserRoleCaption);
+      Text := 'Р РѕР»СЊ: ' + Trim(CurrentUserRoleCaption);
       Width := Canvas.TextWidth(Text + '      ');
     end;
     with Panels.Add do
     begin
-      Text := 'Имя компьютера: ' + Trim(GetComputerNetName);
+      Text := 'РРјСЏ РєРѕРјРїСЊСЋС‚РµСЂР°: ' + Trim(GetComputerNetName);
       Width := Canvas.TextWidth(Text + '      ');
     end;
     with Panels.Add do
     begin
-      Text := 'Версия клиента: ' + GetFileVersion;
+      Text := 'Р’РµСЂСЃРёСЏ РєР»РёРµРЅС‚Р°: ' + GetFileVersion;
       Width := Canvas.TextWidth(Text + '      ');
     end;
     with Panels.Add do
     begin
-      Text := 'Версия БД: ' + Trim(IntToStr(DBVersion));
+      Text := 'Р’РµСЂСЃРёСЏ Р‘Р”: ' + Trim(IntToStr(DBVersion));
       Width := Canvas.TextWidth(Text + '      ');
     end;
   end;

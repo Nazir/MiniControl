@@ -6,9 +6,9 @@ unit ExecutionFormUnit;
 {                                                                              }
 {  Unit: Execution module                                                      }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir В© 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
-{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РҐСѓСЃРЅСѓС‚РґРёРЅРѕРІ РќР°Р·РёСЂ РљР°СЂРёРјРѕРІРёС‡                                    }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
@@ -75,7 +75,7 @@ begin
   //<12.04.2010> WP Nazir
   with ExecutionForm do
   try
-    Caption := 'Выполнение';
+    Caption := 'Р’С‹РїРѕР»РЅРµРЅРёРµ';
     ShapeRange.Pen.Color := AColor;
     Font.Color := ShapeRange.Pen.Color;
     if ACaption = '' then
@@ -124,7 +124,7 @@ begin
       AColor := 0;
     with ExecutionForm do
     try
-      Caption := 'Выполнение';
+      Caption := 'Р’С‹РїРѕР»РЅРµРЅРёРµ';
       Font.Color := AColor;
       ShapeRange.Pen.Color := Font.Color;
       if ACaption = '' then

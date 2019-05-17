@@ -6,17 +6,17 @@ unit IdentUnit;
 {                                                                              }
 { Unit: User Identification Module                                             }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir В© 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
-{  Разработчик: Хуснутдинов Назир Каримович                                    }
-{  Разработчик: Смолин Николай Геннадьевич (SnugForce)                         }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РҐСѓСЃРЅСѓС‚РґРёРЅРѕРІ РќР°Р·РёСЂ РљР°СЂРёРјРѕРІРёС‡                                    }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РЎРјРѕР»РёРЅ РќРёРєРѕР»Р°Р№ Р“РµРЅРЅР°РґСЊРµРІРёС‡ (SnugForce)                         }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
 {  Modified: 14.01.2007                                                        }
 {  Modified: 09.05.2009                                                        }
-{  Modified: 03.06.2009 - авторизация ч/з СУБД Nazir                           }
-{  Modified: 14.05.2012 - Из русского в латиницу                               }
+{  Modified: 03.06.2009 - Р°РІС‚РѕСЂРёР·Р°С†РёСЏ С‡/Р· РЎРЈР‘Р” Nazir                           }
+{  Modified: 14.05.2012 - РР· СЂСѓСЃСЃРєРѕРіРѕ РІ Р»Р°С‚РёРЅРёС†Сѓ                               }
 {  Modified: 16.05.2019 (Lazarus)                                              }
 {                                                                              }
 {******************************************************************************}
@@ -29,7 +29,7 @@ uses
 
 //const
 //  KEY = 314159;  // 465464;     //1325568
-  {TODO:  Для каждой проги свой ключ}
+  {TODO:  Р”Р»СЏ РєР°Р¶РґРѕР№ РїСЂРѕРіРё СЃРІРѕР№ РєР»СЋС‡}
 
 type
   TSimpleIdent = class(TObject)
@@ -77,7 +77,7 @@ begin
   inherited;
   GM := TSimpleGamma.Create;
   MinPasswordLength := 8;
-  // Установка прав в ноубоди
+  // РЈСЃС‚Р°РЅРѕРІРєР° РїСЂР°РІ РІ РЅРѕСѓР±РѕРґРё
   LogOut;
 end;
 
@@ -89,17 +89,17 @@ end;
 
 function TSimpleIdent.CheckLogin(AUserName, APassword: string): Boolean;
 begin
-  // Проверка логина и пароля
+  // РџСЂРѕРІРµСЂРєР° Р»РѕРіРёРЅР° Рё РїР°СЂРѕР»СЏ
   Result := False;
 
   if Trim(APassword) = EmptyStr then
   begin
-    MessageBox(Application.Handle, 'Небходимо ввести пароль!',
+    MessageBox(Application.Handle, 'РќРµР±С…РѕРґРёРјРѕ РІРІРµСЃС‚Рё РїР°СЂРѕР»СЊ!',
                MSG_Warning, MB_OK_EXCL); //}
     Exit;           
   end;
 
-  // Ноавая версия авторизации (пользователи СУБД) <16.07.2009>:
+  // РќРѕР°РІР°СЏ РІРµСЂСЃРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё (РїРѕР»СЊР·РѕРІР°С‚РµР»Рё РЎРЈР‘Р”) <16.07.2009>:
   if (Trim(AUserName) <> EmptyStr) and (Trim(APassword) <> EmptyStr) then
   begin
     CurrentUserNameDBMS := AUserName;
@@ -107,7 +107,7 @@ begin
     {$IFDEF PASSWORD_PROTECT}
     CurrentUserNameDBMSpw := GM.HashString(CurrentUserNameDBMSpw, CurrentUserNameDBMS);
     {$ENDIF}
-    // Попытка соединиться
+    // РџРѕРїС‹С‚РєР° СЃРѕРµРґРёРЅРёС‚СЊСЃСЏ
     Result := dmDB.Disconnect;
     if Result then
       Result := dmDB.Connect;
@@ -118,7 +118,7 @@ begin
   //
   end;
 
-  { Старая версия авторизации (пользователи свои): <03.06.2009>
+  { РЎС‚Р°СЂР°СЏ РІРµСЂСЃРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё (РїРѕР»СЊР·РѕРІР°С‚РµР»Рё СЃРІРѕРё): <03.06.2009>
   APassword := GM.HashString(APassword, AUserName);
   if GetFieldValueByUserName(AUserName, 'PASSWD_HASH') = APassword then
     Result := True; //}
@@ -126,15 +126,15 @@ end;
 
 procedure TSimpleIdent.FillUsersList(AList: TStrings; AShowPermis: Boolean);
 begin
-  // Очистка списка
-  // Ноавая версия авторизации (пользователи СУБД) от <16.07.2009>:
+  // РћС‡РёСЃС‚РєР° СЃРїРёСЃРєР°
+  // РќРѕР°РІР°СЏ РІРµСЂСЃРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё (РїРѕР»СЊР·РѕРІР°С‚РµР»Рё РЎРЈР‘Р”) РѕС‚ <16.07.2009>:
   with ifConfig do
   if SectionExists('Users') then
   begin
     ReadSection('Users', AList);
   end;
   
- { Старая версия авторизации (пользователи свои): <03.06.2009>
+ { РЎС‚Р°СЂР°СЏ РІРµСЂСЃРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё (РїРѕР»СЊР·РѕРІР°С‚РµР»Рё СЃРІРѕРё): <03.06.2009>
   with dmDB.ds_SYS_USER.DataSet do
   try
     First;
@@ -151,9 +151,9 @@ begin
       Next;
     end;
   except
-    // журнал регистрации ошибок
+    // Р¶СѓСЂРЅР°Р» СЂРµРіРёСЃС‚СЂР°С†РёРё РѕС€РёР±РѕРє
     on E: Exception do
-      SaveLog('DB', SError + ': Ошибка загрузки списка пользователей: ' +
+      SaveLog('DB', SError + ': РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№: ' +
               E.Message, 'err');
   end; //}
 end;
@@ -180,7 +180,7 @@ end;
 function TSimpleIdent.LogIn: Boolean;
 begin
   try
-  // Вход юзера. внутренняя функция
+  // Р’С…РѕРґ СЋР·РµСЂР°. РІРЅСѓС‚СЂРµРЅРЅСЏСЏ С„СѓРЅРєС†РёСЏ
   Result := False;
   with dmDB do
   if UserHasPrivileges(CurrentUserRole) then
@@ -217,30 +217,30 @@ begin
     end
     else
     begin  
-      ShowMessageForm('Пользователь "' + CurrentUserNameDBMS + '" в системе не зарегистрирован!', 0,
-                 'Пользователь не имеет право работать в системе.' + CRLF +
-                 'Его небходимо добавить.' + CRLF +
-                 'Обратитесь к администратору.', Application);
+      ShowMessageForm('РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ "' + CurrentUserNameDBMS + '" РІ СЃРёСЃС‚РµРјРµ РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ!', 0,
+                 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РёРјРµРµС‚ РїСЂР°РІРѕ СЂР°Р±РѕС‚Р°С‚СЊ РІ СЃРёСЃС‚РµРјРµ.' + CRLF +
+                 'Р•РіРѕ РЅРµР±С…РѕРґРёРјРѕ РґРѕР±Р°РІРёС‚СЊ.' + CRLF +
+                 'РћР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ.', Application);
     end;
   end
   else
   begin
-    ShowMessageForm('Пользователь "' + CurrentUserNameDBMS +
-                     '" не имеет право на роль "' + CurrentUserRoleCaption + '"!', 1,
-               'Пользователь не имеет право работать в системе' +
-               ' c ролью "' + CurrentUserRoleCaption + '"!' + CRLF +
-               'Обратитесь к администратору базы данных.', Application);
+    ShowMessageForm('РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ "' + CurrentUserNameDBMS +
+                     '" РЅРµ РёРјРµРµС‚ РїСЂР°РІРѕ РЅР° СЂРѕР»СЊ "' + CurrentUserRoleCaption + '"!', 1,
+               'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РёРјРµРµС‚ РїСЂР°РІРѕ СЂР°Р±РѕС‚Р°С‚СЊ РІ СЃРёСЃС‚РµРјРµ' +
+               ' c СЂРѕР»СЊСЋ "' + CurrentUserRoleCaption + '"!' + CRLF +
+               'РћР±СЂР°С‚РёС‚РµСЃСЊ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Р±Р°Р·С‹ РґР°РЅРЅС‹С….', Application);
   end;
   except
     on E: Exception do
-      SaveLogToFile('Application', 'Ошибка в методе TSimpleIdent.LogIn: ' + E.Message, 'err');
+      SaveLogToFile('Application', 'РћС€РёР±РєР° РІ РјРµС‚РѕРґРµ TSimpleIdent.LogIn: ' + E.Message, 'err');
   end;
 end;
 
 function TSimpleIdent.LogOut: Integer;
 begin
   try
-  // Установка в ноубоди
+  // РЈСЃС‚Р°РЅРѕРІРєР° РІ РЅРѕСѓР±РѕРґРё
   if (Trim(CurrentUserName) <> EmptyStr) then
     dmDB.SaveLogToDB('Session', 'Logout: ' + CurrentUserName + ' [' +
      CurrentUserNameDBMS + ']; ' + ' [' + IntToStr(CurrentUserID) + ']', 'inf');
@@ -250,7 +250,7 @@ begin
  // dmDB.Disconnect;   // ????????????????
   except
     on E: Exception do
-      SaveLogToFile('Application', 'Ошибка в методе TSimpleIdent.LogOut: ' + E.Message, 'err');
+      SaveLogToFile('Application', 'РћС€РёР±РєР° РІ РјРµС‚РѕРґРµ TSimpleIdent.LogOut: ' + E.Message, 'err');
   end;
 end;
 {$WARNINGS ON}
@@ -267,7 +267,7 @@ begin
   try
   {$IFDEF LOGIN}
 
-  { Активный ли пользователь?
+  { РђРєС‚РёРІРЅС‹Р№ Р»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ?
   MessageBox(Application.Handle, PChar('' + CurrentUserName),
               MSG_Warning, MB_OK_EXCL); //}
 
@@ -275,17 +275,17 @@ begin
   iCount := 0;
   bIsHacker := False;
   bLogIn := False;
-  // Показ формы входа, если флаг показа AShowForm = True
+  // РџРѕРєР°Р· С„РѕСЂРјС‹ РІС…РѕРґР°, РµСЃР»Рё С„Р»Р°Рі РїРѕРєР°Р·Р° AShowForm = True
   if AShowForm then
   with TLoginForm.Create(Application) do
   try
-    // Заполнение комбокса
+    // Р—Р°РїРѕР»РЅРµРЅРёРµ РєРѕРјР±РѕРєСЃР°
     cbxUserName.ItemIndex := -1;
     FillUsersList(cbxUserName.Items);
     if cbxUserName.Items.Count > 0 then
       cbxUserName.ItemIndex := 0;
-    Caption := 'Начать сеанс. [' + AppTitle + ']';
-    // цикл
+    Caption := 'РќР°С‡Р°С‚СЊ СЃРµР°РЅСЃ. [' + AppTitle + ']';
+    // С†РёРєР»
     repeat
       //Application.BringToFront;
       Inc(iCount);
@@ -293,8 +293,8 @@ begin
       lePassword.Text := sPass;
       iModalResult := ShowModal;
       CurrentUserRole := 'role_user';
-      // Если вернули выход, кол-во попыток много или кто-то химик, то
-      // выходим из проги
+      // Р•СЃР»Рё РІРµСЂРЅСѓР»Рё РІС‹С…РѕРґ, РєРѕР»-РІРѕ РїРѕРїС‹С‚РѕРє РјРЅРѕРіРѕ РёР»Рё РєС‚Рѕ-С‚Рѕ С…РёРјРёРє, С‚Рѕ
+      // РІС‹С…РѕРґРёРј РёР· РїСЂРѕРіРё
       if (iModalResult = mrCancel) or (iCount >= 10) or
         (siIdent.isVisibleLoginForm) then
       begin
@@ -316,7 +316,7 @@ begin
 
     CurrentUserRoleCaption := cbxCurrentUserRole.ItemsEx[cbxCurrentUserRole.ItemIndex].Caption;
 
-    // Установка текущего юзера
+    // РЈСЃС‚Р°РЅРѕРІРєР° С‚РµРєСѓС‰РµРіРѕ СЋР·РµСЂР°
     bLogIn := LogIn;
 
 
@@ -341,7 +341,7 @@ begin
   AppCaption := GetFullProjectName + ' [' + CurrentUserName + '] [' +
                                     CurrentSubdivisionCaption + ']';
   {$ELSE}
-  AppCaption := GetShortProjectName + ' [Хозяин] [' + GetComputerNetName + ']';
+  AppCaption := GetShortProjectName + ' [РҐРѕР·СЏРёРЅ] [' + GetComputerNetName + ']';
   {$ENDIF}
 
   with dmDB do
@@ -352,7 +352,7 @@ begin
   
   except
     on E: Exception do
-      SaveLogToFile('Application', 'Ошибка в методе TSimpleIdent.ChangeLogin: ' + E.Message, 'err');
+      SaveLogToFile('Application', 'РћС€РёР±РєР° РІ РјРµС‚РѕРґРµ TSimpleIdent.ChangeLogin: ' + E.Message, 'err');
   end;
 end;
 
@@ -361,11 +361,11 @@ var
   res: Integer;
   fl: Boolean;
 begin
-  // Показ формы добавления
+  // РџРѕРєР°Р· С„РѕСЂРјС‹ РґРѕР±Р°РІР»РµРЅРёСЏ
   fl := False;
   with TLoginForm.Create(Application) do
     try
-      Caption := 'Пожалуйста, подтвердите права админа';
+      Caption := 'РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРґС‚РІРµСЂРґРёС‚Рµ РїСЂР°РІР° Р°РґРјРёРЅР°';
       FillUsersList(cbxUserName.Items);
       cbxUserName.Items.Text := cbxUserName.Items[0];
       res := ShowModal;
@@ -393,13 +393,13 @@ begin
     Exit;
   end;
 
-  // Проверка на простоту
+  // РџСЂРѕРІРµСЂРєР° РЅР° РїСЂРѕСЃС‚РѕС‚Сѓ
 
-  // На длину
+  // РќР° РґР»РёРЅСѓ
   if Length(APassword) < MinPasswordLength then
     Exit;
 
-  // На повторяющиеся буквы
+  // РќР° РїРѕРІС‚РѕСЂСЏСЋС‰РёРµСЃСЏ Р±СѓРєРІС‹
   iMaximum := 0;
   for iCounter1 := 1 to Length(APassword) do
   begin
@@ -410,7 +410,7 @@ begin
     if iCount > iMaximum then
       iMaximum := iCount;
   end;
-  // Если их больше половины
+  // Р•СЃР»Рё РёС… Р±РѕР»СЊС€Рµ РїРѕР»РѕРІРёРЅС‹
   if ( iMaximum > (Length(APassword) div 2) ) then
     Exit;
 
@@ -429,11 +429,11 @@ begin
 end;
 
 initialization
-  // Автосоздание класса
+  // РђРІС‚РѕСЃРѕР·РґР°РЅРёРµ РєР»Р°СЃСЃР°
   siIdent := TSimpleIdent.Create;
 
 finalization
-  // Автоуничтожение класа
+  // РђРІС‚РѕСѓРЅРёС‡С‚РѕР¶РµРЅРёРµ РєР»Р°СЃР°
   siIdent.Free;
   
 end.

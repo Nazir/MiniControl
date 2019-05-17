@@ -6,9 +6,9 @@ unit SplashUnit;
 {                                                                              }
 { Unit: Splash Window Module                                                   }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir В© 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
-{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: РҐСѓСЃРЅСѓС‚РґРёРЅРѕРІ РќР°Р·РёСЂ РљР°СЂРёРјРѕРІРёС‡                                    }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
@@ -55,7 +55,7 @@ var
 //  Graph: TGraphic;
 begin
   lblProjectName.Caption := GetFullProjectName;
-  lblProductName.Caption := GetProductName + '™';
+  lblProductName.Caption := GetProductName + 'в„ў';
   lblVersion.Caption := GetFullFileVersion;
 
   with pbInitStatus do
