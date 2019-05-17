@@ -4,7 +4,7 @@ unit MainUnit;
 
 {******************************************************************************}
 {                                                                              }
-{                                Main unit                                     }
+{  Unit: Main                                                                   }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -12,8 +12,8 @@ unit MainUnit;
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
-{  Create: 15.05.2019                                                          }
-{  Modify: 15.05.2019                                                          }
+{  Created: 15.05.2019                                                         }
+{  Modified: 15.05.2019                                                        }
 {                                                                              }
 {******************************************************************************}
 
@@ -21,8 +21,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ActnList,
-  ComCtrls, DBCtrls, DBGrids, StdCtrls, PopupNotifier, ExtCtrls, PairSplitter,
-  DataBaseUnit;
+  ComCtrls, DBCtrls, DBGrids, StdCtrls, ExtCtrls, PairSplitter,
+  LvlGraphCtrl, TreeFilterEdit, DBUnit;
 
 type
 
@@ -32,23 +32,30 @@ type
     actConnect: TAction;
     alMain: TActionList;
     ApplicationProperties: TApplicationProperties;
+    DBGrid1: TDBGrid;
     DBGridMain: TDBGrid;
     DBGroupBox1: TDBGroupBox;
+    DBLookupComboBox1: TDBLookupComboBox;
     DBNavigator1: TDBNavigator;
     DBText1: TDBText;
     gbTree: TGroupBox;
     gbData: TGroupBox;
     ilMain: TImageList;
     ilGridTitles: TImageList;
+    ilTreeView: TImageList;
+    ilTreeViewState: TImageList;
+    ilTreeViewSelected: TImageList;
     MenuItem2: TMenuItem;
     miFile: TMenuItem;
     mmMain: TMainMenu;
     PairSplitterMain: TPairSplitter;
     PairSplitterSideLeft: TPairSplitterSide;
     PairSplitterSideRight: TPairSplitterSide;
-    PopupNotifierMain: TPopupNotifier;
+    Splitter1: TSplitter;
+    Splitter2: TSplitter;
     StatusBar1: TStatusBar;
     TrayIconMain: TTrayIcon;
+    tfeMain: TTreeFilterEdit;
     tvMain: TTreeView;
     procedure actConnectExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -66,36 +73,27 @@ implementation
 
 {$R *.lfm}
 
+uses GlobalsUnit;
+
 { TMainForm }
 
 procedure TMainForm.actConnectExecute(Sender: TObject);
 begin
-  with dmDataBase do
+  with dmDB do
   try
-     with PQConnectionMain do
-     try
-        DatabaseName := 'minidb';
-        UserName := 'dev';
-        Password := 'dev';
-        Role := 'role_dev';
-        Connected := True;
-        PopupNotifierMain.Text := 'Connection successfully!';
-        PopupNotifierMain.Show;
-     except
-       ShowMessage('Connection error');
-     end;
+    Connect();
   finally
-    if PQConnectionMain.Connected then
+    if CheckConnected then
     begin
-      with SQLQueryMain do
+      with DataSetMain do
       try
          SQL.Text := 'SELECT * FROM public.v_country;';
          Active := True;
          DBText1.DataSource := dsMain;
          DBText1.DataField := 'name';
          //ExecSQL;
-         PopupNotifierMain.Text := 'Query executed successfully!';
-         PopupNotifierMain.Show;
+         //dmGlobals.PopupNotifierMain.Text := 'Query executed successfully!';
+         //dmGlobals.PopupNotifierMain.Show;
       except
         ShowMessage('Query error');
       end;
@@ -117,7 +115,6 @@ end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  PopupNotifierMain.Title := 'Информация';
   //PopupNotifierMain.ShowAtPos(Self.Left + Self.Width, Self.Height);
 end;
 

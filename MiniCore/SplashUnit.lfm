@@ -1,0 +1,115 @@
+object SplashForm: TSplashForm
+  Left = 371
+  Height = 329
+  Top = 179
+  Width = 412
+  BorderStyle = bsNone
+  Caption = 'SplashForm'
+  ClientHeight = 329
+  ClientWidth = 412
+  Color = clWhite
+  Constraints.MaxHeight = 340
+  Constraints.MaxWidth = 420
+  Constraints.MinHeight = 329
+  Constraints.MinWidth = 412
+  Font.Color = 7820873
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.2.0'
+  object imProgramLogo: TImage
+    Left = 0
+    Height = 329
+    Top = 0
+    Width = 412
+    Align = alClient
+  end
+  object pbInitStatus: TProgressBar
+    Left = 8
+    Height = 20
+    Top = 301
+    Width = 395
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 0
+  end
+  object lbCreators: TLabel
+    Left = 8
+    Height = 32
+    Top = 241
+    Width = 395
+    Alignment = taCenter
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = 'Внимание! Исключительные права на программу принадлежат'#13#10'её разработчикам. Copyright (c).'
+    ParentColor = False
+  end
+  object lbInitStatus: TLabel
+    Left = 8
+    Height = 16
+    Top = 281
+    Width = 64
+    Anchors = [akLeft]
+    Caption = 'lbInitStatus'
+    ParentColor = False
+  end
+  object lblProjectName: TLabel
+    Left = 8
+    Height = 60
+    Top = 181
+    Width = 397
+    Alignment = taCenter
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = 'lblProjectName'
+    Font.Color = 6966592
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object lblVersion: TLabel
+    Left = 344
+    Height = 16
+    Top = 8
+    Width = 56
+    Alignment = taRightJustify
+    Anchors = [akTop, akRight]
+    Caption = 'lblVersion'
+    Font.Color = 6966592
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblProductName: TLabel
+    Left = 7
+    Height = 105
+    Top = 66
+    Width = 397
+    Alignment = taCenter
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = False
+    Caption = 'lblProductName'
+    Font.Color = 6966592
+    Font.Height = -40
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object Bevel: TBevel
+    Left = 0
+    Height = 329
+    Top = 0
+    Width = 412
+    Align = alClient
+    Style = bsRaised
+    OnChangeBounds = BevelChangeBounds
+  end
+end

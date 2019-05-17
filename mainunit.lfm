@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 248
+  Left = 357
   Height = 550
-  Top = 143
+  Top = 148
   Width = 795
   Caption = 'MainForm'
   ClientHeight = 530
@@ -36,19 +36,46 @@ object MainForm: TMainForm
         Left = 0
         Height = 507
         Top = 0
-        Width = 185
-        Align = alLeft
+        Width = 150
+        Align = alClient
         Caption = 'gbTree'
         ClientHeight = 487
-        ClientWidth = 181
+        ClientWidth = 146
         TabOrder = 0
         object tvMain: TTreeView
           Left = 0
-          Height = 487
-          Top = 0
-          Width = 181
+          Height = 464
+          Top = 23
+          Width = 146
           Align = alClient
+          HideSelection = False
+          Images = ilTreeView
+          ReadOnly = True
+          RowSelect = True
+          StateImages = ilTreeViewState
           TabOrder = 0
+          Options = [tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRowSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+          Items.Data = {
+            F9FFFFFF020002000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF020000000000
+            000001050000004974656D30FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000
+            0000000000050000004974656D31FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            00000000000000050000004974656D32FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            010000000000000001050000004974656D33FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFF000000000000000000050000004974656D34
+          }
+        end
+        object tfeMain: TTreeFilterEdit
+          Left = 0
+          Height = 23
+          Top = 0
+          Width = 146
+          ButtonWidth = 23
+          FocusOnButtonClick = True
+          Align = alTop
+          NumGlyphs = 1
+          MaxLength = 0
+          TabOrder = 1
+          FilteredTreeview = tvMain
         end
       end
     end
@@ -72,13 +99,13 @@ object MainForm: TMainForm
         TabOrder = 0
         object DBGridMain: TDBGrid
           Left = 0
-          Height = 357
+          Height = 247
           Top = 0
           Width = 636
           Align = alClient
           Color = clWindow
           Columns = <>
-          DataSource = dmDataBase.dsMain
+          DataSource = dmDB.dsMain
           ParentBiDiMode = False
           TabOrder = 0
           TitleImageList = ilGridTitles
@@ -92,7 +119,7 @@ object MainForm: TMainForm
           Caption = 'DBGroupBox1'
           ClientHeight = 85
           ClientWidth = 632
-          DataSource = dmDataBase.dsMain
+          DataSource = dmDB.dsMain
           TabOrder = 1
           object DBText1: TDBText
             Left = 8
@@ -101,11 +128,20 @@ object MainForm: TMainForm
             Width = 41
             ParentColor = False
           end
+          object DBLookupComboBox1: TDBLookupComboBox
+            Left = 152
+            Height = 23
+            Top = 26
+            Width = 100
+            ListFieldIndex = 0
+            LookupCache = False
+            TabOrder = 0
+          end
         end
         object DBNavigator1: TDBNavigator
           Left = 0
           Height = 25
-          Top = 357
+          Top = 247
           Width = 636
           Align = alBottom
           BevelOuter = bvNone
@@ -117,9 +153,37 @@ object MainForm: TMainForm
           ChildSizing.ControlsPerLine = 100
           ClientHeight = 25
           ClientWidth = 636
-          DataSource = dmDataBase.dsMain
+          DataSource = dmDB.dsMain
           Options = []
           TabOrder = 2
+        end
+        object DBGrid1: TDBGrid
+          Left = 0
+          Height = 100
+          Top = 277
+          Width = 636
+          Align = alBottom
+          Color = clWindow
+          Columns = <>
+          TabOrder = 3
+        end
+        object Splitter1: TSplitter
+          Cursor = crVSplit
+          Left = 0
+          Height = 5
+          Top = 377
+          Width = 636
+          Align = alBottom
+          ResizeAnchor = akBottom
+        end
+        object Splitter2: TSplitter
+          Cursor = crVSplit
+          Left = 0
+          Height = 5
+          Top = 272
+          Width = 636
+          Align = alBottom
+          ResizeAnchor = akBottom
         end
       end
     end
@@ -143,27 +207,27 @@ object MainForm: TMainForm
     end
   end
   object ilMain: TImageList
-    left = 320
+    left = 312
   end
   object ilGridTitles: TImageList
-    left = 376
-  end
-  object PopupNotifierMain: TPopupNotifier
-    Color = clInfoBk
-    Icon.Data = {
-      07544269746D617000000000
-    }
-    Text = 'Text'
-    Title = 'Caption'
-    Visible = False
-    left = 264
-    top = 56
+    left = 360
   end
   object ApplicationProperties: TApplicationProperties
     left = 472
+    top = 56
   end
   object TrayIconMain: TTrayIcon
     OnClick = TrayIconMainClick
-    left = 564
+    left = 560
+    top = 56
+  end
+  object ilTreeView: TImageList
+    left = 424
+  end
+  object ilTreeViewState: TImageList
+    left = 496
+  end
+  object ilTreeViewSelected: TImageList
+    left = 568
   end
 end

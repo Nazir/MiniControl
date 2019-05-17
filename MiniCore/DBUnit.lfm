@@ -1,0 +1,69 @@
+object dmDB: TdmDB
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 471
+  HorizontalOffset = 383
+  VerticalOffset = 152
+  Width = 677
+  PPI = 96
+  object DatabaseMain: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = True
+    Transaction = TransactionMain
+    left = 48
+    top = 16
+  end
+  object DataSetMain: TSQLQuery
+    FieldDefs = <>
+    Database = DatabaseMain
+    Transaction = TransactionMain
+    Params = <>
+    left = 48
+    top = 240
+  end
+  object dsMain: TDataSource
+    DataSet = DataSetMain
+    left = 48
+    top = 184
+  end
+  object TransactionMain: TSQLTransaction
+    Active = False
+    Database = DatabaseMain
+    left = 48
+    top = 128
+  end
+  object DataSetUsers: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 152
+    top = 72
+  end
+  object DataSetTemp: TSQLQuery
+    FieldDefs = <>
+    Database = DatabaseMain
+    Transaction = TransactionMain
+    Params = <>
+    left = 152
+    top = 240
+  end
+  object DataSetApp: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 152
+    top = 16
+  end
+  object DataSetParams: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 152
+    top = 128
+  end
+  object TransactionExec: TSQLTransaction
+    Active = False
+    Database = DatabaseMain
+    left = 48
+    top = 296
+  end
+end
