@@ -1,4 +1,4 @@
-//{$DEFINE DEBUG} // Debug mode (Режим отладки)
+{$DEFINE DEBUG} // Debug mode (Режим отладки)
 //{$DEFINE SERVICE} // SERVICE mode (Режим службы)
 
 {*
@@ -33,6 +33,6 @@
 {*
  * LANGUAGE  (Язык)
  *}
-{$DEFINE LANG_RU_RU}   // Language (Язык)
-//{$DEFINE LANG_EN_EN}   // Language
+//{$DEFINE LANG_RU_RU}   // Language (Язык)
+{$DEFINE LANG_EN_EN}   // Language
 

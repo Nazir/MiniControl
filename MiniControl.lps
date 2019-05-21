@@ -4,13 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="63">
+    <Units Count="47">
       <Unit0>
         <Filename Value="MiniControl.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="41"/>
-        <CursorPos Y="59"/>
-        <UsageCount Value="88"/>
+        <TopLine Value="71"/>
+        <CursorPos Y="90"/>
+        <UsageCount Value="215"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,10 +20,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUnit"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="75"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="76"/>
         <CursorPos Y="82"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="215"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -34,541 +34,468 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos X="95" Y="21"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="16"/>
       </Unit2>
       <Unit3>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\sqldb\postgres\pqconnection.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="124"/>
-        <CursorPos X="14" Y="136"/>
-        <UsageCount Value="10"/>
-      </Unit3>
-      <Unit4>
         <Filename Value="loginunit.pas"/>
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="LoginUnit"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="12"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="9"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="MiniCore\ConstsUnit.pas"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="86" Y="245"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="..\..\MiniCore\LoginFormUnit.pas"/>
-        <ComponentName Value="LoginForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="516"/>
-        <CursorPos X="52" Y="538"/>
-        <UsageCount Value="5"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="..\..\MiniCore\LoginFormUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="..\..\MiniCore\Defines.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="23" Y="12"/>
-        <UsageCount Value="5"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="..\..\MiniCore\SplashUnit.pas"/>
-        <ComponentName Value="SplashForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="75"/>
-        <CursorPos X="18" Y="105"/>
-        <UsageCount Value="5"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="..\..\MiniCore\ConstsUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="75"/>
-        <CursorPos X="71" Y="93"/>
-        <UsageCount Value="5"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-base\src\inifiles.pp"/>
-        <UnitName Value="IniFiles"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="182"/>
-        <CursorPos X="3" Y="200"/>
-        <UsageCount Value="4"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\..\MiniCore\SplashUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="..\MiniCore\ConstsUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="48" Y="23"/>
-        <UsageCount Value="4"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="MiniCore\ConstsUnit.pas"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="388"/>
-        <CursorPos X="10" Y="262"/>
-        <UsageCount Value="37"/>
-        <Loaded Value="True"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="MiniCore\ClientDiff.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="44" Y="33"/>
-        <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
         <Filename Value="MiniCore\Defines.inc"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="2"/>
-        <CursorPos Y="22"/>
-        <UsageCount Value="16"/>
+        <CursorPos X="13"/>
+        <UsageCount Value="90"/>
         <Loaded Value="True"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="MiniCore\UtilsUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="26"/>
-        <UsageCount Value="12"/>
-      </Unit16>
-      <Unit17>
+      </Unit5>
+      <Unit6>
         <Filename Value="MiniCore\DBUnit.pas"/>
         <ComponentName Value="dmDB"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="634"/>
-        <CursorPos X="65" Y="663"/>
-        <UsageCount Value="17"/>
+        <TopLine Value="523"/>
+        <CursorPos X="15" Y="546"/>
+        <UsageCount Value="91"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\osutilsh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="8"/>
-        <CursorPos X="10" Y="26"/>
-        <UsageCount Value="5"/>
-      </Unit18>
-      <Unit19>
-        <Filename Value="MiniCore\SplashUnit.pas"/>
-        <ComponentName Value="SplashForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="45" Y="110"/>
-        <UsageCount Value="11"/>
-      </Unit19>
-      <Unit20>
+      </Unit6>
+      <Unit7>
         <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="11" Y="21"/>
+        <TopLine Value="1829"/>
+        <CursorPos X="3" Y="1848"/>
         <UsageCount Value="9"/>
-      </Unit20>
-      <Unit21>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\graphics.pp"/>
-        <UnitName Value="Graphics"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="14" Y="17"/>
-        <UsageCount Value="5"/>
-      </Unit21>
-      <Unit22>
-        <Filename Value="MiniCore\ImagesUnit.pas"/>
-        <ComponentName Value="dmImages"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="16"/>
-        <UsageCount Value="9"/>
-      </Unit22>
-      <Unit23>
-        <Filename Value="MiniCore\GlobalsUnit.pas"/>
-        <ComponentName Value="dmGlobals"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="59"/>
-        <CursorPos X="3" Y="61"/>
-        <UsageCount Value="9"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win\messages.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="5"/>
-      </Unit24>
-      <Unit25>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\lmessages.pp"/>
-        <UnitName Value="LMessages"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="5"/>
-      </Unit25>
-      <Unit26>
-        <Filename Value="MiniCore\MessageFormUnit.pas"/>
-        <ComponentName Value="MessageForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="64"/>
-        <CursorPos X="58" Y="69"/>
-        <UsageCount Value="15"/>
-      </Unit26>
-      <Unit27>
-        <Filename Value="MiniCore\MessageFormUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="130"/>
-        <CursorPos X="29" Y="142"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit27>
-      <Unit28>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\intfgraphics.pas"/>
-        <UnitName Value="IntfGraphics"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="5701"/>
-        <CursorPos Y="5719"/>
-        <UsageCount Value="5"/>
-      </Unit28>
-      <Unit29>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\interfaces\win32\win32wscontrols.pp"/>
-        <UnitName Value="Win32WSControls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="203"/>
-        <CursorPos Y="220"/>
-        <UsageCount Value="5"/>
-      </Unit29>
-      <Unit30>
+      </Unit7>
+      <Unit8>
         <Filename Value="MiniCore\LoginFormUnit.pas"/>
         <ComponentName Value="LoginForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="211"/>
-        <CursorPos Y="234"/>
-        <UsageCount Value="36"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="489"/>
+        <CursorPos Y="518"/>
+        <UsageCount Value="100"/>
+        <Bookmarks Count="2">
+          <Item0 X="6" Y="240"/>
+          <Item1 X="3" Y="522" ID="1"/>
+        </Bookmarks>
         <Loaded Value="True"/>
-      </Unit30>
-      <Unit31>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\include\customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="922"/>
-        <CursorPos Y="940"/>
-        <UsageCount Value="5"/>
-      </Unit31>
-      <Unit32>
-        <Filename Value="MiniCore\GlobalsUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="8"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit32>
-      <Unit33>
+        <LoadedDesigner Value="True"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="MiniCore\IdentUnit.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="266"/>
-        <CursorPos Y="283"/>
-        <UsageCount Value="36"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="160"/>
+        <CursorPos Y="179"/>
+        <UsageCount Value="100"/>
         <Loaded Value="True"/>
-      </Unit33>
-      <Unit34>
-        <Filename Value="MiniCore\GammaUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="197"/>
-        <CursorPos X="15" Y="200"/>
-        <UsageCount Value="9"/>
-      </Unit34>
-      <Unit35>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\inc\systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="736"/>
-        <CursorPos X="11" Y="737"/>
-        <UsageCount Value="5"/>
-      </Unit35>
-      <Unit36>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\inc\generic.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="666"/>
-        <CursorPos X="3" Y="671"/>
-        <UsageCount Value="5"/>
-      </Unit36>
-      <Unit37>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\x86_64\x86_64.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="441"/>
-        <CursorPos X="42" Y="319"/>
-        <UsageCount Value="5"/>
-      </Unit37>
-      <Unit38>
-        <Filename Value="MiniCore\LoginFormUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="249"/>
-        <CursorPos X="13" Y="267"/>
-        <UsageCount Value="7"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit38>
-      <Unit39>
+      </Unit9>
+      <Unit10>
         <Filename Value="MiniCore\SettingsDBUnit.pas"/>
         <ComponentName Value="SettingsDBForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="195"/>
-        <CursorPos X="14" Y="223"/>
-        <UsageCount Value="13"/>
-      </Unit39>
-      <Unit40>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\extctrls.pp"/>
-        <UnitName Value="ExtCtrls"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="14" Y="17"/>
-        <UsageCount Value="9"/>
-      </Unit40>
-      <Unit41>
-        <Filename Value="MiniCore\SettingsDBUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="301"/>
-        <CursorPos X="35" Y="331"/>
-        <UsageCount Value="7"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit41>
-      <Unit42>
-        <Filename Value="..\..\..\..\..\Delphi\src\v1.0\MiniKernel\ListsEditorUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="51" Y="20"/>
-        <UsageCount Value="5"/>
-      </Unit42>
-      <Unit43>
+        <EditorIndex Value="7"/>
+        <TopLine Value="147"/>
+        <CursorPos X="33" Y="177"/>
+        <UsageCount Value="16"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
         <ComponentName Value="ChangePasswordForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="25"/>
-        <CursorPos Y="37"/>
-        <UsageCount Value="34"/>
-      </Unit43>
-      <Unit44>
-        <Filename Value="MiniCore\ChangePasswordFormUnit.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="27" Y="69"/>
-        <UsageCount Value="7"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit44>
-      <Unit45>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\dbctrls.pp"/>
-        <UnitName Value="DBCtrls"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="13" Y="25"/>
-        <UsageCount Value="5"/>
-      </Unit45>
-      <Unit46>
-        <Filename Value=".gitignore"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="13" Y="5"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="None"/>
-      </Unit46>
-      <Unit47>
+        <EditorIndex Value="6"/>
+        <CursorPos X="33" Y="14"/>
+        <UsageCount Value="19"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\interfaces\win32\win32listsl.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="139"/>
-        <CursorPos Y="169"/>
-        <UsageCount Value="10"/>
-      </Unit47>
-      <Unit48>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\objpas.pp"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="8" Y="35"/>
-        <UsageCount Value="5"/>
-      </Unit48>
-      <Unit49>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win\wininc\ascdef.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="238"/>
-        <CursorPos X="10" Y="256"/>
+        <TopLine Value="141"/>
+        <CursorPos Y="171"/>
         <UsageCount Value="9"/>
-      </Unit49>
-      <Unit50>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\dialogs.pp"/>
-        <UnitName Value="Dialogs"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="13" Y="17"/>
-        <UsageCount Value="9"/>
-      </Unit50>
-      <Unit51>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\lcltype.pp"/>
-        <UnitName Value="LCLType"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="13" Y="31"/>
-        <UsageCount Value="9"/>
-      </Unit51>
-      <Unit52>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\controls.pp"/>
-        <UnitName Value="Controls"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="14" Y="19"/>
-        <UsageCount Value="9"/>
-      </Unit52>
-      <Unit53>
+      </Unit12>
+      <Unit13>
         <Filename Value="MiniCore\ExecutionFormUnit.pas"/>
         <HasResources Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="115"/>
         <CursorPos X="37" Y="137"/>
-        <UsageCount Value="14"/>
-      </Unit53>
-      <Unit54>
+        <UsageCount Value="9"/>
+      </Unit13>
+      <Unit14>
         <Filename Value="MiniCore\ExecutionFormUnit.lfm"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="303"/>
         <CursorPos X="13" Y="331"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit54>
-      <Unit55>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\classes\classesh.inc"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="mainunit.lfm"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1701"/>
-        <CursorPos X="25" Y="1717"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="MiniControl.lpi"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="MiniControl.lps"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="MiniCore\UtilsUnit.pas"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="421"/>
+        <CursorPos X="3" Y="434"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="MiniCore\ClientDiff.pas"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="21"/>
+        <CursorPos X="28" Y="48"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\stdctrls.pp"/>
+        <UnitName Value="StdCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="400"/>
+        <CursorPos X="3" Y="418"/>
+        <UsageCount Value="8"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win\messages.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="MiniCore\LoginFormUnit.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="216"/>
+        <CursorPos X="31" Y="246"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="MiniCore\CommonUnit.pas"/>
+        <ComponentName Value="dmCommon"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="72" Y="9"/>
+        <UsageCount Value="15"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="MiniCore\CommonUnit.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="MiniCore\SplashUnit.pas"/>
+        <ComponentName Value="SplashForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="79"/>
+        <CursorPos X="28" Y="106"/>
+        <UsageCount Value="14"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win\wininc\ascdef.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="190"/>
+        <CursorPos X="102" Y="256"/>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="MiniCore\ImagesUnit.pas"/>
+        <ComponentName Value="dmImages"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="11"/>
+        <CursorPos X="22" Y="29"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\interfaces\win32\win32listslh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="23"/>
+        <CursorPos X="14" Y="53"/>
         <UsageCount Value="9"/>
-      </Unit55>
-      <Unit56>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\sqldb\sqldb.pp"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="MiniCore\ImagesUnit.lfm"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3391"/>
-        <CursorPos X="48" Y="3421"/>
-        <UsageCount Value="10"/>
-      </Unit56>
-      <Unit57>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\db.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1987"/>
-        <CursorPos X="5" Y="1994"/>
-        <UsageCount Value="10"/>
-      </Unit57>
-      <Unit58>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\database.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="78"/>
-        <CursorPos X="3" Y="83"/>
         <UsageCount Value="9"/>
-      </Unit58>
-      <Unit59>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\bufdataset.pas"/>
-        <UnitName Value="BufDataset"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="428"/>
-        <CursorPos X="3" Y="446"/>
+        <TopLine Value="635"/>
+        <CursorPos Y="653"/>
+        <UsageCount Value="9"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="MiniCore\Protect.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="11" Y="27"/>
         <UsageCount Value="10"/>
-      </Unit59>
-      <Unit60>
+      </Unit31>
+      <Unit32>
+        <Filename Value="MiniCore\ModData.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="11"/>
+        <UsageCount Value="9"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win\sysutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\win64\windows.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="9" Y="10"/>
+        <UsageCount Value="9"/>
+      </Unit34>
+      <Unit35>
         <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\rtl-objpas\src\inc\variants.pp"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="118"/>
-        <CursorPos X="59" Y="127"/>
-        <UsageCount Value="10"/>
-      </Unit60>
-      <Unit61>
-        <Filename Value="MiniCore\DBUnit.lfm"/>
+        <TopLine Value="13"/>
+        <UsageCount Value="9"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\rtlconsts.pp"/>
+        <UnitName Value="RtlConsts"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="11"/>
-        <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit61>
-      <Unit62>
-        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\lcl\actnlist.pas"/>
-        <UnitName Value="ActnList"/>
+        <UsageCount Value="9"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\sysconst.pp"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="179"/>
-        <CursorPos X="14" Y="196"/>
+        <UsageCount Value="9"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="MiniCore\WideGamma.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="4"/>
+        <UsageCount Value="9"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\hash\src\md5.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="109"/>
+        <CursorPos X="18" Y="125"/>
+        <UsageCount Value="9"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\..\..\..\..\Delphi\src\v1.0\MiniKernel\DBUnit.pas"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2797"/>
+        <CursorPos X="53" Y="2829"/>
         <UsageCount Value="10"/>
-      </Unit62>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\..\..\..\..\Delphi\src\v1.0\MiniKernel\EhLibFIB.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="21"/>
+        <CursorPos X="5" Y="21"/>
+        <UsageCount Value="10"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\sqldb\sqldb.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="278"/>
+        <CursorPos X="14" Y="295"/>
+        <UsageCount Value="10"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\sysstrh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="192"/>
+        <CursorPos X="23" Y="222"/>
+        <UsageCount Value="10"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\db.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1948"/>
+        <CursorPos X="15" Y="1966"/>
+        <UsageCount Value="10"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-db\src\base\database.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="537"/>
+        <CursorPos X="3" Y="540"/>
+        <UsageCount Value="10"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="C:\Users\KhusnutdinovNK\Documents\pf\Lazarus\fpc\3.0.4\source\packages\fcl-base\src\inifiles.pp"/>
+        <UnitName Value="IniFiles"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1100"/>
+        <CursorPos X="3" Y="1105"/>
+        <UsageCount Value="10"/>
+      </Unit46>
     </Units>
-    <JumpHistory Count="18" HistoryIndex="17">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="MiniCore\DBUnit.pas"/>
-        <Caret Line="564" Column="73" TopLine="531"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Column="11"/>
       </Position1>
       <Position2>
-        <Filename Value="MiniCore\DBUnit.pas"/>
-        <Caret Line="664" Column="67" TopLine="133"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="51" Column="11" TopLine="21"/>
       </Position2>
       <Position3>
-        <Filename Value="MiniCore\DBUnit.pas"/>
-        <Caret Column="56" TopLine="52"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="62" Column="21" TopLine="32"/>
       </Position3>
       <Position4>
-        <Filename Value="MiniCore\DBUnit.pas"/>
-        <Caret Column="56" TopLine="52"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="141" Column="9" TopLine="111"/>
       </Position4>
       <Position5>
-        <Filename Value="MiniCore\DBUnit.pas"/>
-        <Caret Line="663" Column="65" TopLine="634"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="176" Column="33" TopLine="146"/>
       </Position5>
       <Position6>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="265" TopLine="250"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="177" Column="33" TopLine="147"/>
       </Position6>
       <Position7>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="280" TopLine="266"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="176" Column="33" TopLine="146"/>
       </Position7>
       <Position8>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="283" TopLine="266"/>
+        <Filename Value="MiniCore\SettingsDBUnit.pas"/>
+        <Caret Line="177" Column="33" TopLine="147"/>
       </Position8>
       <Position9>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="284" TopLine="266"/>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="376" Column="27" TopLine="368"/>
       </Position9>
       <Position10>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="128" Column="110" TopLine="109"/>
+        <Filename Value="MiniCore\DBUnit.pas"/>
+        <Caret Line="553" TopLine="523"/>
       </Position10>
       <Position11>
         <Filename Value="MiniCore\LoginFormUnit.pas"/>
-        <Caret Line="211" TopLine="194"/>
+        <Caret Line="523" Column="7" TopLine="503"/>
       </Position11>
       <Position12>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="283" TopLine="266"/>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="519" Column="49" TopLine="504"/>
       </Position12>
       <Position13>
         <Filename Value="MiniCore\LoginFormUnit.pas"/>
-        <Caret Line="230" TopLine="211"/>
+        <Caret Line="522" TopLine="515"/>
       </Position13>
       <Position14>
-        <Filename Value="MiniCore\LoginFormUnit.pas"/>
-        <Caret Line="234" TopLine="211"/>
+        <Filename Value="MiniCore\DBUnit.pas"/>
+        <Caret Line="527" Column="21" TopLine="524"/>
       </Position14>
       <Position15>
-        <Filename Value="MiniCore\Defines.inc"/>
-        <Caret Line="22" TopLine="2"/>
+        <Filename Value="MiniCore\DBUnit.pas"/>
+        <Caret Line="535" Column="30" TopLine="523"/>
       </Position15>
       <Position16>
         <Filename Value="MiniCore\LoginFormUnit.pas"/>
-        <Caret Line="211" TopLine="194"/>
+        <Caret Line="522" TopLine="515"/>
       </Position16>
       <Position17>
-        <Filename Value="MiniCore\IdentUnit.pas"/>
-        <Caret Line="283" TopLine="266"/>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="384" Column="46" TopLine="364"/>
       </Position17>
       <Position18>
         <Filename Value="MiniCore\LoginFormUnit.pas"/>
-        <Caret Line="230" TopLine="211"/>
+        <Caret Line="574" Column="27" TopLine="559"/>
       </Position18>
+      <Position19>
+        <Filename Value="MiniCore\UtilsUnit.pas"/>
+        <Caret Line="434" Column="3" TopLine="421"/>
+      </Position19>
+      <Position20>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="41" Column="17" TopLine="23"/>
+      </Position20>
+      <Position21>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="39" TopLine="23"/>
+      </Position21>
+      <Position22>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="40" TopLine="23"/>
+      </Position22>
+      <Position23>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="41" TopLine="23"/>
+      </Position23>
+      <Position24>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="43" TopLine="23"/>
+      </Position24>
+      <Position25>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="44" TopLine="23"/>
+      </Position25>
+      <Position26>
+        <Filename Value="MiniCore\ChangePasswordFormUnit.pas"/>
+        <Caret Line="14" Column="33"/>
+      </Position26>
+      <Position27>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="492" TopLine="474"/>
+      </Position27>
+      <Position28>
+        <Filename Value="MiniCore\ConstsUnit.pas"/>
+        <Caret Line="245" Column="135"/>
+      </Position28>
+      <Position29>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="501" Column="7" TopLine="489"/>
+      </Position29>
+      <Position30>
+        <Filename Value="MiniCore\LoginFormUnit.pas"/>
+        <Caret Line="518" TopLine="489"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -576,119 +503,82 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="16">
+    <BreakPoints Count="10">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="230"/>
+        <Source Value="MiniCore\DBUnit.pas"/>
+        <Line Value="1139"/>
       </Item1>
       <Item2>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="mainunit.pas"/>
-        <Line Value="82"/>
+        <Source Value="MiniCore\DBUnit.pas"/>
+        <Line Value="394"/>
       </Item2>
       <Item3>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="557"/>
+        <Source Value="mainunit.pas"/>
+        <Line Value="86"/>
       </Item3>
       <Item4>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="MiniCore\DBUnit.pas"/>
-        <Line Value="821"/>
+        <Line Value="312"/>
       </Item4>
       <Item5>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\ChangePasswordFormUnit.pas"/>
-        <Line Value="37"/>
+        <Source Value="MiniCore\DBUnit.pas"/>
+        <Line Value="350"/>
       </Item5>
       <Item6>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\DBUnit.pas"/>
-        <Line Value="391"/>
+        <Source Value="MiniCore\LoginFormUnit.pas"/>
+        <Line Value="159"/>
       </Item6>
       <Item7>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="mainunit.pas"/>
-        <Line Value="86"/>
+        <Source Value="MiniCore\LoginFormUnit.pas"/>
+        <Line Value="162"/>
       </Item7>
       <Item8>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\DBUnit.pas"/>
-        <Line Value="309"/>
+        <Source Value="MiniCore\LoginFormUnit.pas"/>
+        <Line Value="592"/>
       </Item8>
       <Item9>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="MiniCore\DBUnit.pas"/>
-        <Line Value="347"/>
+        <Line Value="714"/>
       </Item9>
       <Item10>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="MiniCore\DBUnit.pas"/>
-        <Line Value="548"/>
+        <Line Value="717"/>
       </Item10>
-      <Item11>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="460"/>
-      </Item11>
-      <Item12>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="465"/>
-      </Item12>
-      <Item13>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="467"/>
-      </Item13>
-      <Item14>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\IdentUnit.pas"/>
-        <Line Value="283"/>
-      </Item14>
-      <Item15>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="211"/>
-      </Item15>
-      <Item16>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="MiniCore\LoginFormUnit.pas"/>
-        <Line Value="234"/>
-      </Item16>
     </BreakPoints>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="CurrentDBConfig"/>
+      </Item1>
+    </Watches>
   </Debugging>
 </CONFIG>

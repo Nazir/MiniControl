@@ -66,4 +66,18 @@ object dmDB: TdmDB
     left = 48
     top = 296
   end
+  object DataSetSQL: TSQLQuery
+    FieldDefs = <>
+    Params = <>
+    left = 152
+    top = 184
+  end
+  object DataSetConditions: TSQLQuery
+    FieldDefs = <>
+    Database = DatabaseMain
+    Transaction = TransactionMain
+    Params = <>
+    left = 152
+    top = 296
+  end
 end

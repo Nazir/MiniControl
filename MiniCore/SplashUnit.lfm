@@ -109,7 +109,7 @@ object SplashForm: TSplashForm
     Top = 0
     Width = 412
     Align = alClient
-    Style = bsRaised
+    BorderSpacing.InnerBorder = 1
     OnChangeBounds = BevelChangeBounds
   end
 end

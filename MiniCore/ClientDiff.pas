@@ -28,10 +28,10 @@ const
   '0000-0000-0000-2008-1108'
   {$MESSAGE HINT 'Компилим проект для Хуснутдинова Назира Каримовича"'}
   {$MESSAGE HINT '  ID клиента: 0000-0000-0000-2008-1102'}
-{$ELSEIF Defined(OVVIO)}
-  '0000-OVVI-OSY-2012-0101'
-  {$MESSAGE HINT 'Компилим проект для Ovvio'}
-  {$MESSAGE HINT '  ID клиента: 0000-OVVI-OSY-2012-0101'}
+{$ELSEIF Defined(Client1)}
+  '0000-CLNT-OSY-2018-0101'
+  {$MESSAGE HINT 'Компилим проект для Client1'}
+  {$MESSAGE HINT '  ID клиента: 0000-CLNT-OSY-2018-0101'}
 {$ELSE}
 {$MESSAGE ERROR 'Выбери вначале организацию!'}
 {$IFEND};
@@ -47,9 +47,9 @@ begin
   {$IF Defined(Nazir)}
     'Хуснутдинов Назир Каримович'#13#10'WEB: nazir.pro'#13#10'Для демонстрации!'
     {$MESSAGE HINT ' реквизиты организации: Хуснутдинов Н.К.'}
-  {$ELSEIF Defined(OVVIO)}
-    'Ovvio Systems'#13#10'WEB: www.ovvio.pro'#13#10'E-mail: support@ovvio.pro'
-    {$MESSAGE HINT ' реквизиты организации: Ovvio Systems'}
+  {$ELSEIF Defined(Client1)}
+      'Client1 name'#13#10'WEB: '#13#10'E-mail: '
+      {$MESSAGE HINT ' реквизиты организации: Client1'}
   {$ELSE}
     {$MESSAGE ERROR 'Выбери вначале организацию!'}
   {$IFEND};

@@ -2,19 +2,23 @@ unit SettingsDBUnit;
 
 {$mode objfpc}{$H+}
 
-{*****************************************************************}
-{                                                                 }
-{                 Модуль окна настроек БД                         }
-{                                                                 }
-{  Copyright: Nazir © 2002-2012                                   }
-{  Development: Nazir K. Khusnutdinov (aka Wild Pointer)          }
-{  Разработчик: Хуснутдинов Назир Каримович (Wild Pointer)        }
-{  Modified: 26.05.2007                                           }
-{  Modified: 03.06.2009, 17.07.2009                               }
-{  Modified: 19.10.2011                                           }
-{  Modified: 16.02.2012                                           }
-{                                                                 }
-{*****************************************************************}
+{******************************************************************************}
+{                                                                              }
+{  Unit: Module of the DB settings window                                      }
+{                                                                              }
+{  Copyright: Nazir © 2002-2019                                                }
+{  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
+{  Разработчик: Хуснутдинов Назир Каримович                                    }
+{  Email: naziron@gmail.com                                                    }
+{  Git: https://github.com/Nazir                                               }
+{                                                                              }
+{  Modified: 26.05.2007                                                        }
+{  Modified: 03.06.2009, 17.07.2009                                            }
+{  Modified: 19.10.2011                                                        }
+{  Modified: 16.02.2012                                                        }
+{  Modified: 15.05.2019 (Lazarus)                                              }
+{                                                                              }
+{******************************************************************************}
 
 interface
 
@@ -31,6 +35,7 @@ type
     gbGeneralDB: TGroupBox;
     ActionList1: TActionList;
     acHelp: TAction;
+    lblPort: TLabel;
     leDBName: TLabeledEdit;
     lbDBList: TListBox;
     acLoadConfig: TAction;
@@ -240,17 +245,17 @@ end;
 procedure TSettingsDBForm.acRefreshDBListExecute(Sender: TObject);
 begin
   if Trim(sDB) = EmptyStr then
-    sDB := ifConfig.ReadString('Defaults', 'sDB', 'localhost');
+    sDB := ifConfig.ReadString('Defaults', 'sDB', 'local');
   with ifDB do
   begin
     ReadSections(lbDBList.Items);
-    if lbDBList.Items.Count > 0 then
+    if lbDBList.Count > 0 then
     begin
       lbDBList.ItemIndex := 0;
       if lbDBList.Items.IndexOf(sDB) > -1 then
         lbDBList.ItemIndex := lbDBList.Items.IndexOf(sDB);
     end;
-    {if lbDBList.Items.Count > 0 then
+    {if lbDBList.Count > 0 then
       lbDBList.ItemIndex := 0;}
 
     lbDBListClick(Sender);

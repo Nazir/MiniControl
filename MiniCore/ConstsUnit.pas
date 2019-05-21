@@ -4,7 +4,7 @@ unit ConstsUnit;
 
 {******************************************************************************}
 {                                                                              }
-{ Unit: Projects Group Global Constants Module                                 }
+{  Unit: Projects Group Global Constants Module                                }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -15,7 +15,8 @@ unit ConstsUnit;
 {  Modified: 09.12.2006                                                        }
 {  Modified: 09.05.2009, 17.05.2009, 07.09.2009, 06.10.2009                    }
 {  Modified: 04.04.2010                                                        }
-{  Modified: 15.05.2019                                                        }
+{  Created: 16.05.2019 (Lazarus)                                               }
+{  Modified: 20.05.2019                                                        }
 {                                                                              }
 {******************************************************************************}
 
@@ -26,7 +27,7 @@ interface
 
 uses
   {$if defined(Windows)}windows,{$endif}
-  LCLIntf, LCLType, LMessages, Messages, Graphics, DateUtils, SysUtils, Classes,
+  LCLIntf, LCLType, LMessages, Forms, Graphics, DateUtils, SysUtils, Classes,
   IniFiles, ClientDiff;
 
 type
@@ -128,43 +129,43 @@ const
   bTrue = 1;
   bFalse = 0;
   //
-  GlobalProductID = '0004-ERP1-ERPS-2009-0603';
+  GlobalProductID = '0001-IS01-MISY-2019-0515';
   GlobalClientID = ClientDiff.SClientID;
   GlobalDemoEndDate = '01.08.2012';
-  {$IFDEF NKES}
-  GlobalDeveloperEmailAddress = 'KhusnutdinovNK@gridcom-rt.ru';
-  GlobalDeveloperSiteAddress = 'www.gridcom-rt.ru';
+  {$IFDEF Nazir}
+  GlobalDeveloperEmailAddress = 'support@nazir.pro';
+  GlobalDeveloperSiteAddress = 'Nazir.pro';
   {$ELSE}
-  GlobalDeveloperEmailAddress = 'support@ovvio.pro';
-  GlobalDeveloperSiteAddress = 'www.Ovvio.pro';
+  GlobalDeveloperEmailAddress = 'support@nazir.pro';
+  GlobalDeveloperSiteAddress = 'Nazir.pro';
   {$ENDIF}
   //GlobalProgramYear = '2010';
 
 
   {$IFDEF LANG_RU_RU}
-//  GlobalVersionPostfix = '';
-//  GlobalVersionPostfix = ' РК'; // Релиз-кандидат
-  GlobalVersionPostfix = ' бета';
-//  SVersionPostfix = ' альфа';
+  //GlobalVersionPostfix = '';
+  //GlobalVersionPostfix = ' РК'; // Релиз-кандидат
+  //GlobalVersionPostfix = ' бета';
+  SVersionPostfix = ' альфа';
   {$ELSE}
-//  GlobalVersionPostfix = '';
-//  GlobalVersionPostfix = ' RC';
-  GlobalVersionPostfix = ' beta';
-//  GlobalVersionPostfix = ' alpha';
+  //GlobalVersionPostfix = '';
+  //GlobalVersionPostfix = ' RC';
+  //GlobalVersionPostfix = ' beta';
+  GlobalVersionPostfix = ' alpha';
   {$ENDIF}
 
 
   {$IFDEF LANG_RU_RU}
-  // MenuItem.Caption
+   //MenuItem.Caption
   GlobalSessionCaption = '&Сеанс';
- // SOrderCaption = '&Заявка';
+  //SOrderCaption = '&Заявка';
   GlobalParameterCaption = '&Параметры';
   GlobalPluginsCaption = 'П&лагины';
   GlobalHelpCaption = 'П&омощь';
   {$ELSE}
   // MenuItem.Caption
   GlobalSessionCaption = '&Session';
- // SOrderCaption = '&Order';
+  //SOrderCaption = '&Order';
   GlobalParameterCaption = '&Parameters';
   GlobalPluginsCaption = 'P&lugins';
   GlobalHelpCaption = '&Help';
@@ -176,7 +177,7 @@ const
   GlobalDBIniFile = 'DB' + GlobalConfigFileExt;
 
 // Реестр
-//  GlobalRegistryKey = 'Software\Ovvio Systems\MiniSystem';
+//  GlobalRegistryKey = 'Software\Nazir\MiniSystem';
 
 // Цвета 
   clNavyBlue = $00775649;   //73 86 119 (Navy Blue - CMYK)
@@ -199,7 +200,8 @@ const
   // Extensions
   ExtMRU = '.mru';
 
-// Сообщения
+  // Messages
+  {$IFDEF LANG_RU_RU}
   MSG_Information         = 'Информация';
   MSG_Warning             = 'Предупреждение';
   MSG_WarningConfirm      = 'Предупреждение: %s';
@@ -213,18 +215,80 @@ const
   MSG_FillFieldNotZero    = 'Значение должно быть больше нуля: "%s"!';
   MSG_FillField           = 'Заполните поле: "%s"!';
   MSG_ErrorFillField      = 'Некорректное заполнение поля: "%s"!';
-  MSG_NeedToFill          = 'Небходимо заполнить поле %s';
-  MSG_NeedToChoose        = 'Небходимо выбрать %s';
+  MSG_NeedToFill          = 'Небходимо заполнить поле "%s"';
+  MSG_NeedToChoose        = 'Небходимо выбрать "%s"';
   MSG_NeedAdminRights     = 'Необходимы права администратора!';
   MSG_IndexOutOfRange     = 'Индекс вне диапазона!';
-  MSG_WrongFormatString   = 'Неверный формат в строке %d. ';
-  MSG_InternalError       = 'Внутренняя ошибка. Обратитесь к разработчикам для решения этой проблемы';
-  MSG_NoAccessToRegistry  = 'Невозможно получить доступ к реестру...';
+  MSG_WrongFormatString   = 'Неверный формат в строке "%d". ';
+  MSG_InternalError       = 'Внутренняя ошибка. Обратитесь к разработчикам для решения этой проблемы.';
   MSG_SaveOverpatching    = 'Сохранить изменения?';
   MSG_DataSaved           = 'Данные сохранены!';
   MSG_DataNotSaved        = 'Данные не сохранены!';
   MSG_OnlyAdminFunc       = 'Эта функция доступна только Администратору.';
   MSG_CurrentPeriod       = 'Текущий период';
+  MSG_NoAccessToRegistry  = 'Невозможно получить доступ к реестру...';
+  MSG_NoProtection        = 'НЕТ ЗАЩИТЫ';
+  // Start application
+  MSG_InitApp             = 'Инициализация приложения...';
+  MSG_AvailReqFilesCheck  = 'Проверка наличия необходимых файлов...';
+  MSG_LoadingImages       = 'Загрузка изображений...';
+  MSG_LoadingCommonDecl   = 'Загрузка общих деклараций...';
+  MSG_InitModuleDBMS      = 'Инициализация модуля работы с СУБД...';
+  MSG_UserIdentification  = 'Идентификация пользователя...';
+  MSG_InitMainWindow      = 'Инициализация главного окна...';
+  MSG_RunningApplication  = 'Запуск приложения...';
+
+  MSG_UnauthorizedAccessAttemptWindow = 'Попытка несанкционированного доступа к окну. Приложение будет закрыто!';
+  MSG_StartSession        = 'Начать сеанс';
+  MSG_YouHaveNoRights     = 'У Вас нет прав!';
+  MSG_MustSelectDbConfig  = 'Необходимо выбрать конфигурацию БД.';
+  MSG_MustEnterUserName   = 'Необходимо ввести имя пользователя или выбрать из списка.';
+  MSG_MustEnterPassword   = 'Необходимо ввести пароль.';
+  {$ELSE}
+  MSG_Information         = 'Information';
+  MSG_Warning             = 'Warning';
+  MSG_WarningConfirm      = 'Warning: %s';
+  MSG_WarningRecordExists = 'Warning: Record exists.';
+  MSG_RecordDelete        = 'Delete record?';
+  MSG_WarningEmptyField   = 'Warning: Field is not filled.';
+  MSG_WarningAlreadyExist = '%s already exists!';
+  MSG_WarningEmptyExists  = 'There are missing data.';
+  MSG_Confirmation        = 'Confirmation';
+  MSG_Error               = 'Error';
+  MSG_FillFieldNotZero    = 'The value must be greater than zero: "%s"!';
+  MSG_FillField           = 'Fill in the field: "%s"!';
+  MSG_ErrorFillField      = 'Incorrect filling of the field: "%s"!';
+  MSG_NeedToFill          = 'You must fill the field "%s"';
+  MSG_NeedToChoose        = 'You must select "%s"';
+  MSG_NeedAdminRights     = 'Administrator rights required!';
+  MSG_IndexOutOfRange     = 'Out of range index!';
+  MSG_WrongFormatString   = 'Invalid format in the string "%d". ';
+  MSG_InternalError       = 'Internal error. Contact the developers to resolve this issue.';
+  MSG_SaveOverpatching    = 'Save the changes?';
+  MSG_DataSaved           = 'Data saved!';
+  MSG_DataNotSaved        = 'Data not saved!';
+  MSG_OnlyAdminFunc       = 'This feature is only available to the Administrator.';
+  MSG_CurrentPeriod       = 'Current period';
+
+  MSG_NoAccessToRegistry  = 'Unable to access registry...';
+  MSG_NoProtection        = 'NO PROTECTION';
+  // Start application
+  MSG_InitApp             = 'Initializing the application...';
+  MSG_AvailReqFilesCheck  = 'Availability required files checking...';
+  MSG_LoadingImages       = 'Loading images...';
+  MSG_LoadingCommonDecl   = 'Loading common declarations...';
+  MSG_InitModuleDBMS      = 'Initialization of the module of work with the DBMS...';
+  MSG_UserIdentification  = 'User identification...';
+  MSG_InitMainWindow      = 'Initialize the main window...';
+  MSG_RunningApplication  = 'Running application...';
+
+  MSG_UnauthorizedAccessAttemptWindow = 'Unauthorized access attempt to the window. The app will be closed!';
+  MSG_StartSession        = 'Start a session';
+  MSG_YouHaveNoRights     = 'You have no rights!';
+  MSG_MustSelectDbConfig  = 'You must select a database configuration.';
+  MSG_MustEnterUserName   = 'You must enter a user name or select from the list.';
+  MSG_MustEnterPassword   = 'You must enter a password.';
+  {$ENDIF}
 
 // Иконка сообщения + кнопки
   MB_OK_INFO = MB_OK or MB_ICONINFORMATION;
@@ -260,8 +324,8 @@ function GetProductVersion: string;
 function GetBuildVersion: string;
 function GetBuildDate: string;
 function GetFileVersion: string;
-function GetFullFileVersion: string; // Полная версия
-function GetFullProductVersion: string; // Полная версия
+function GetFullFileVersion: string;
+function GetFullProductVersion: string;
 function GetAuthor(AName: string): string;
 function GetLegalCopyright: string;
 
@@ -369,12 +433,6 @@ begin
     Result := DeCoderString(#149#135#109#160#135#44#10#114#79#235#68#113#187#70#231#151#70#210#70#16#112#59#72#157#190#170#65, iKey_string);
     Result := Result + ' (Wild Pointer)'
   end;
-  if AName = 'Alex' then
-  // 'Карпов Алексей Николаевич'
-  begin
-    Result := 'Карпов А.Н.';
-    Result := Result + ''
-  end;
 end;
 
 function GetLegalCopyright: string;
@@ -393,14 +451,14 @@ end;
 function PathUserConfig: string;
 begin
   //<04.12.2012> WP Nazir
-  Result := PathOSAppData + 'Ovvio Systems\MiniSystem\';
+  Result := PathOSAppData + 'Nazir\MiniSystem\';
   if not DirectoryExists(Result) then
     ForceDirectories(Result);
 end;
 
 function PathTemp: string;
 begin
-  Result := PathOSTempUser + 'Ovvio Systems\MiniSystem';
+  Result := PathOSTempUser + 'Nazir\MiniSystem';
   if not DirectoryExists(Result) then
     ForceDirectories(Result);
 end;
@@ -477,7 +535,6 @@ begin
   // Полный лог событий
   sFileName := PathLog + 'Full.log';
   SaveTextToFile(sFileName, sLine, 2, iMaxFileSize);
-
 end;
 
 procedure SendCopyData(AhWind: HWND; AMessID: Integer; AMess: string);
@@ -551,11 +608,10 @@ initialization
   CurrentWorkYear := YearOf(CurrentDateEnd);
   CurrentWorkMonth := MonthOf(CurrentDateEnd);
   {$IFDEF DEBUG}
-  MessageBox(0, 'ВНИМАНИЕ!!! ' + CRLF +'Отладочная сборка!' + CRLF +'Только для разработчиков!', MSG_Warning, MB_OK_EXCL);
-
+  Application.MessageBox('ATTENTION!!! ' + CRLF +'Debug build!' + CRLF + 'For developers only!', MSG_Warning, MB_OK_EXCL);
   {$ENDIF}
- // MessageBox(0, PChar(GetStrUserName), MSG_Warning, MB_OK_EXCL);
-//  MessageBox(0, PChar(PathUserConfig), MSG_Warning, MB_OK_EXCL);
+  //Application.MessageBox(PChar(GetStrUserName), MSG_Warning, MB_OK_EXCL);
+  //Application.MessageBox(PChar(PathUserConfig), MSG_Warning, MB_OK_EXCL);
 
   // Основные цвета по умолчанию
   clMain := clWhite;

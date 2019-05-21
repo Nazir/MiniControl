@@ -25,7 +25,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, Graphics,
   lazcontrols,
-  ConstsUnit, UtilsUnit, ImagesUnit, GlobalsUnit,
+  ConstsUnit, UtilsUnit, ImagesUnit, CommonUnit,
   IdentUnit, SplashUnit, MainUnit;
 
 {$R *.res}
@@ -56,29 +56,29 @@ begin
   Application.Initialize;
   with TSplashForm.Create(Application) do
   try
-    lbInitStatus.Caption := 'Инициализация приложения...';
+    lbInitStatus.Caption := MSG_InitApp;
     Show;
     Application.HelpFile := '';
-    Application.Title:='MiniControl';
-    AppTitle := 'Администрирование системы "Мини"';
+    Application.Title := 'MiniControl';
+    AppTitle := 'MiniControl';
     AppCaption := GetFullProjectName;
-    lbInitStatus.Caption := 'Проверка наличия необходимых файлов...';
+    lbInitStatus.Caption := MSG_AvailReqFilesCheck;
     CheckNeededFiles(Handle);
 
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
-    lbInitStatus.Caption := 'Загрузка пиктограмм...';
+    lbInitStatus.Caption := MSG_LoadingImages;
     Application.CreateForm(TdmImages, dmImages);
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
-    lbInitStatus.Caption := 'Загрузка глобальных...';
-    Application.CreateForm(TdmGlobals, dmGlobals);
+    lbInitStatus.Caption := MSG_LoadingCommonDecl;
+    Application.CreateForm(TdmCommon, dmCommon);
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
-    lbInitStatus.Caption := 'Инициализация модуля работы с СУБД...';
+    lbInitStatus.Caption := MSG_InitModuleDBMS;
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
-    lbInitStatus.Caption := 'Идентификация пользователя...';
+    lbInitStatus.Caption := MSG_UserIdentification;
     CurrentUserID := 0;
     {$IFDEF LOGIN}
     siIdent.ChangeLogin;
@@ -91,13 +91,12 @@ begin
     {$ENDIF}
     pbInitStatus.Position := pbInitStatus.Position + 20;
 
-
-    if (CurrentUserRole = 'role_admin') or (CurrentUserRole = 'role_owner') then
+     if (CurrentUserRole = 'role_admin') or (CurrentUserRole = 'role_owner') then
     begin
-      lbInitStatus.Caption := 'Инициализация главного окна...';
+      lbInitStatus.Caption := MSG_InitMainWindow;
       Application.CreateForm(TMainForm, MainForm);
       pbInitStatus.Position := pbInitStatus.Position + 30;
-      lbInitStatus.Caption := 'Запуск приложения...';
+      lbInitStatus.Caption := MSG_RunningApplication;
       pbInitStatus.Position := pbInitStatus.Max;
     end;
     {$IFDEF LOGIN}
@@ -111,7 +110,7 @@ begin
   if (CurrentUserRole = 'role_admin') or (CurrentUserRole = 'role_owner') then
     Application.Run
   else
-    Application.MessageBox(PChar('У Вас нет прав!'), MSG_Warning, MB_OK_EXCL);
+    Application.MessageBox(PChar(MSG_YouHaveNoRights), MSG_Warning, MB_OK_EXCL);
   {$IFDEF LOGIN}
   siIdent.LogOut;
   {$ENDIF}

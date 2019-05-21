@@ -4,7 +4,7 @@ unit DBUnit;
 
 {******************************************************************************}
 {                                                                              }
-{  Unit: Database control module                                                }
+{  Unit: Database control module                                               }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -54,6 +54,7 @@ type
   { TdmDB }
 
   TdmDB = class(TDataModule)
+    DataSetConditions: TSQLQuery;
     dsMain: TDataSource;
     DatabaseMain: TPQConnection;
     DataSetTemp: TSQLQuery;
@@ -61,6 +62,7 @@ type
     DataSetUsers: TSQLQuery;
     DataSetMain: TSQLQuery;
     DataSetParams: TSQLQuery;
+    DataSetSQL: TSQLQuery;
     TransactionExec: TSQLTransaction;
     TransactionMain: TSQLTransaction;
     procedure DataModuleCreate(Sender: TObject);
@@ -176,11 +178,12 @@ type
 
     procedure SpecifySettingsDBLookupComboBox(
       ADBLookupComboBox: TDBLookupCombobox; AListSource: TDataSource;
-      AListField : string = 'NAME'; AShowTitles: Boolean = False;
-      AListFieldIndex: Integer = 0; AKeyField : string = 'ID');
+      AListField : string = 'name'; AShowTitles: Boolean = False;
+      AListFieldIndex: Integer = 0; AKeyField : string = 'id');
 
-    procedure DatasetConditions(ApFIBDataset: TSQLQuery; AName: string;
-      AActive: Boolean = True);
+    procedure SetDatasetConditions(ADataset: TSQLQuery; AName: string;
+      AActive: Boolean);
+
     function UserHasPrivileges(ARelationName: string): Boolean;
 
     procedure SaveLogToDB(ALogName, ALogText, ALogStatus: string);
@@ -215,7 +218,7 @@ implementation
 { TdmDB }
 
 uses
-  ConstsUnit, ExecutionFormUnit, MessageFormUnit;
+  Protect, UtilsUnit, ConstsUnit, ExecutionFormUnit, MessageFormUnit;
 
 { TConnectingThread }
 
@@ -559,42 +562,263 @@ end;
 function TdmDB.LoadSQLToQuery(ASQLText: string; var ADataSet: TSQLQuery;
   AConditions: string; AGroupByClause: string; AOrderClause: string): string;
 begin
+  //if CheckConnected then
+  //begin
+  //  with DataSetMain do
+  //  try
+  //     SQL.Text := ASQLText;
+  //     Active := True;
+  //  except
+  //    ShowMessage('Query error');
+  //  end;
+  //  if Active then
+  //  begin
+  //    with DBGridMain do
+  //    try
+  //      Options := Options + [dgCellEllipsis, dgCellHints, dgDblClickAutoSize,
+  //      dgDisplayMemoText];
+  //      //Options2 := Options2 + [goScrollToLastCol, goScrollToLastRow];
+  //    except
+  //      ShowMessage('Grid error');
+  //    end;
+  //  end;
+  //end;
 
+  Result := '';
+
+  if not CheckConnected then
+    Exit;
+
+  if (Trim(ASQLText) = EmptyStr) or (Trim(ASQLText) = 'NULL') then
+  begin
+    SaveLogToDB('System', 'Запрос на выборку (select) пуст!', 'wrn');
+    Exit;
+  end;
+
+  with ADataSet do
+  try
+    Close;
+    Filter := '';
+    SQL.Clear;
+    if Trim(ASQLText) <> EmptyStr then
+    begin
+      SQL.Text := ASQLText;
+      try
+        //Conditions.Clear;
+        //MainWhereClause
+        if (Trim(AConditions) <> EmptyStr) then
+          //Conditions.AddCondition('Conditions', AConditions, True);
+          StringReplace(SQL.Text, 'WHERE TRUE', 'WHERE TRUE AND ' + AConditions, [rfIgnoreCase, rfReplaceAll]);
+
+        if (Trim(AGroupByClause) <> EmptyStr) then
+          //GroupByClause := AGroupByClause;
+          StringReplace(SQL.Text, 'GROUP BY', 'GROUP BY ' + AGroupByClause, [rfIgnoreCase, rfReplaceAll]);
+
+        if (Trim(AOrderClause) <> EmptyStr) then
+          //OrderClause := AOrderClause;
+          StringReplace(SQL.Text, 'ORDER BY', 'ORDER BY ' + AOrderClause, [rfIgnoreCase, rfReplaceAll]);
+
+        {slTemp.Clear; // <OLD>
+        slTemp.Text := AParams;
+        for iCounter := 0 to slTemp.Count - 1 do
+        begin
+          sTemp := slTemp.Strings[iCounter];
+          sParamName := Copy(sTemp, 1, Pos('=', sTemp) - 1);
+          sParamValue := Copy(sTemp, Pos('=', sTemp) + 1, Length(sTemp));
+          if ParamExist(sParamName, iTemp) then
+            ParamByName(sParamName).AsString := sParamValue
+          else
+          begin
+            if Pos('WHERE ', UpperCase(SelectSQL.Text)) = 0 then
+            begin
+              SelectSQL.Add('where ');
+              SelectSQL.Add(sParamName + '=' + sParamValue);
+            end
+            else
+              SelectSQL.Add(' and ' + sParamName + '=' + sParamValue);
+          end;
+        end; //}
+
+        {if AConditions = '' then
+          SetDatasetConditions(ADataSet, GetFieldValueFromSQLs(ASQLName, 'CONDITION_NAME'))
+        else
+          SetDatasetConditions(ADataSet, AConditions); //}
+
+        //Conditions.Apply;
+        CurrentSQL := SQL.Text;
+        Open;
+      except
+        on E: Exception do
+        begin
+          Result := 'err';
+          SaveLogToDB('SQL', 'Ошибка в LoadSQLToQueryByName загрузки ' + ASQLText + ': ' + E.Message + ' ClassName=' + E.ClassName, 'err');
+        end;
+      end;
+      //Result := SQL.Text;
+    end;
+  except
+    on E: Exception do
+    begin
+      Result := 'err';
+      SaveLogToDB('SQL', 'Ошибка в LoadSQLToQuery загрузки: ' + E.Message, 'err');
+    end;
+  end;
 end;
 
 function TdmDB.LoadSQLToQueryByName(ASQLName: string;
   var ADataSet: TSQLQuery; AConditions: string; AGroupByClause: string;
   AOrderClause: string): string;
 begin
-
+  try
+    FillCode(@TdmDB._LoadSQLToQueryByName, 'TdmDB._LoadSQLToQueryByName');
+    Result := _LoadSQLToQueryByName(ASQLName, ADataSet, AConditions, AGroupByClause, AOrderClause);
+    ClearCode(@TdmDB._LoadSQLToQueryByName, 'TdmDB._LoadSQLToQueryByName');
+  except
+  end; //}
 end;
 
 function TdmDB._LoadSQLToQueryByName(ASQLName: string;
   var ADataSet: TSQLQuery; AConditions: string; AGroupByClause: string;
   AOrderClause: string): string;
+var
+  sSQLText: string;
 begin
+  if not CheckConnected then
+    Exit;
 
+  Result := '';
+  if Trim(ASQLName) = EmptyStr  then
+    Exit;
+
+  sSQLText := GetSQL(ASQLName);
+  if (Trim(sSQLText) = EmptyStr) or (Trim(sSQLText) = 'NULL') then
+  begin
+    SaveLogToDB('System', 'Запрос на выборку (select) пуст для ASQLName=' + ASQLName, 'wrn');
+    Exit;
+  end;
+
+  if SetSQLs(ASQLName, ADataset) = 'OK' then
+  begin
+    if LoadSQLToQuery(sSQLText, ADataSet, AConditions, AGroupByClause,
+      AOrderClause) = 'err' then
+      SaveLogToDB('SQL', 'Ошибка в LoadSQLToQueryByName загрузки SQLName=' + ASQLName, 'err');
+  end;
 end;
 
 function TdmDB.GetFieldValueFromTable(AFieldName, ATableName, ACondition: string
   ): string;
+// Получение значения поля AFieldName из таблицы ATableName по условию ACondition
+var
+  DataSetTmp: TSQLQuery;
 begin
+  if not CheckConnected then
+    Exit;
 
+  DataSetTmp := TSQLQuery.Create(Self);
+  SpecifySettingsDataset(DataSetTmp);
+  Result := '';
+  with DataSetTmp do
+  try
+    SQL.Add('SELECT');
+    SQL.Add(AFieldName);
+    SQL.Add('FROM');
+    SQL.Add(ATableName);
+    if ACondition <> EmptyStr then
+    begin
+      SQL.Add('WHERE');
+      SQL.Add(ACondition);
+    end;
+    Open;
+    if RecordCount > 0 then
+   // if RecordCountFromSrv > 0 then
+      Result := FieldByName(AFieldName).AsString;
+    Close;
+  except
+    on E: Exception do
+    begin
+      SaveLogToDB('SQL', 'Ошибка GetFieldValueFromTable ' + ATableName + '.' + AFieldName + ': ' + E.Message, 'err');
+    end;
+  end;
+  DataSetTmp.Free;
 end;
 
 function TdmDB.GetFieldValueFromSQLs(ASQLName, AFieldName: string): string;
+var
+  sTemp: string;
 begin
+  Result := 'Error';
+  if Trim(ASQLName) = EmptyStr then
+    Exit;
+  if Trim(AFieldName) = EmptyStr then
+    Exit;
 
+  if not CheckConnected then
+    Exit;
+
+  with DataSetSQL do
+  try
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT ss.NAME, ss.' + AFieldName);
+    SQL.Add('FROM sys.sql AS ss');
+    SQL.Add('WHERE ss.NAME = ''' + ASQLName + '''');
+    //ParamByName('NAME').AsString := ASQLName;
+    Open;
+    Result := 'NULL';
+    if RecordCount > 0 then
+    //if RecordCountFromSrv > 0 then
+      Result := FieldByName(AFieldName).AsString;
+  except
+    on E: Exception do
+    begin
+     //  if E is EAccessViolation then
+      if not CheckConnected then
+        Connect(True);
+      sTemp := 'SQLName: ' + ASQLName;
+      sTemp := sTemp +  CRLF + 'Запрос:' + CRLF + SQL.Text;
+      sTemp := sTemp + CRLF + '___________';
+      sTemp := sTemp + CRLF + 'Исключение: <<' + E.Message + '>> ClassName=' + E.ClassName;
+      ShowMessageForm('Ошибка в GetFieldValueFromSQLs открытия таблицы SQLs:', 2, sTemp);
+      SaveLogToDB('SQL', 'Ошибка в GetFieldValueFromSQLs открытия таблицы SQLs: ' + CRLF + sTemp, 'err');
+    end;
+  end;
 end;
 
 function TdmDB.GetSQL(ASQLName: string; ASQLType: Integer): string;
 begin
-
+  Result := '';
+  case ASQLType of
+    1: Result := GetFieldValueFromSQLs(ASQLName, 'sql_select');
+    2: Result := GetFieldValueFromSQLs(ASQLName, 'sql_refresh');
+    3: Result := GetFieldValueFromSQLs(ASQLName, 'sql_insert');
+    4: Result := GetFieldValueFromSQLs(ASQLName, 'sql_update');
+    5: Result := GetFieldValueFromSQLs(ASQLName, 'sql_delete');
+  else
+    Result := GetFieldValueFromSQLs(ASQLName, 'sql_select');
+  end;
 end;
 
 function TdmDB.SetSQLs(ASQLName: string; var ADataSet: TSQLQuery): string;
 begin
+  Result := 'err';
 
+  if not CheckConnected then
+    Exit;
+
+  Result := 'OK';
+  with DataSetSQL do
+  try
+    ADataset.RefreshSQL.Text := GetFieldValueFromSQLs(ASQLName, 'sql_refresh');
+    ADataset.InsertSQL.Text := GetFieldValueFromSQLs(ASQLName, 'sql_insert');
+    ADataset.UpdateSQL.Text := GetFieldValueFromSQLs(ASQLName, 'sql_update');
+    ADataset.DeleteSQL.Text := GetFieldValueFromSQLs(ASQLName, 'sql_delete');
+  except
+    on E: Exception do
+    begin
+      Result := 'err';
+      SaveLogToDB('SQL', 'Ошибка в SetSQLs загрузки из БД ' + ASQLName + ': ' + E.Message, 'err');
+    end;
+  end;
 end;
 
 procedure TdmDB.SaveColumnsWidths(AGridName: string; AColumns: TDBGridColumns
@@ -788,20 +1012,114 @@ begin
 
 end;
 
-procedure TdmDB.DatasetConditions(ApFIBDataset: TSQLQuery; AName: string;
+procedure TdmDB.SetDatasetConditions(ADataset: TSQLQuery; AName: string;
   AActive: Boolean);
+var
+  sConditions: TStringList;
+  iCounter: Integer;
 begin
+  if not CheckConnected then
+    Exit;
 
+  if AName =  EmptyStr then
+    Exit;
+  sConditions := TStringList.Create;
+  //with ADataset do
+  //begin
+  //  Close;
+  //  Conditions.Clear;
+  //  sConditions.Text := StringReplace(AName, ';', #13#10, [rfIgnoreCase, rfReplaceAll]);
+  //  if DataSetConditions.Active then
+  //    DataSetConditions.Close;
+  //  DataSetConditions.SelectSQL.Text :=
+  //    GetFieldValueFromSQLs('Conditions' + SQL_Main, 'sql_select');
+  //  DataSetConditions.Open;
+  //  for iCounter := 0 to sConditions.Count - 1 do
+  //  begin
+  //    if DataSetConditions.Locate('name', sConditions[iCounter], []) then
+  //      Conditions.AddCondition(sConditions[iCounter],
+  //                 DataSetConditions.FieldValues['condition'], AActive);
+  //  end;
+  //  Conditions.Apply;
+  //  Open;
+  //end;
+  sConditions.Free;
 end;
 
 function TdmDB.UserHasPrivileges(ARelationName: string): Boolean;
+var
+  vTemp: Variant;
 begin
+  if not CheckConnected then
+    Exit;
 
+  Result := False;
+  //try
+  //  // Вызов хранимой процедуры
+  //  vTemp := StoredProc('P_SYS_USER_HAS_PRIVILEGES', ':RELATION_NAME_INP', ARelationName, 'RELATION_NAME_OUT');
+  //  if vTemp = NULL then
+  //    Exit;
+  //  if ARelationName = Trim(vTemp) then
+  //    Result := True;
+  //except
+  //  on E: Exception do
+  //  begin
+  //    Result := False;
+  //    SaveLogToDB('SQL', 'Ошибка в функции UserHasPrivileges: ' + E.Message, 'err');
+  //  end;
+  //end;
 end;
 
 procedure TdmDB.SaveLogToDB(ALogName, ALogText, ALogStatus: string);
+// Запись журналов регистраций
+var
+  iEventType: Integer;
+  vTemp: Variant;
 begin
+  if not CheckConnected then
+  begin
+    SaveLogToFile('SQL', 'Нет соединения с БД в процедуре SaveLogToDB пишем в файл:', 'err');
+    SaveLogToFile(ALogName, ALogText, ALogStatus);
+    Exit;
+  end;
 
+  iEventType := -1;
+  if ALogStatus = 'inf' then
+    iEventType := 0;
+  if ALogStatus = 'wrn' then
+    iEventType := 1;
+  if ALogStatus = 'err' then
+    iEventType := 2;
+  if ALogStatus = 'exl' then
+    iEventType := 3;
+  if ALogStatus = 'qst' then
+    iEventType := 4;
+  if ALogStatus = 'hnd' then
+    iEventType := 5;
+  if ALogStatus = 'ast' then
+    iEventType := 6;
+  if ALogStatus = 'stp' then
+    iEventType := 7;
+  if ALogStatus = 'msk' then
+    iEventType := 8;
+
+  vTemp := NULL;
+  try
+    //DatabaseMain.GetServerTime;
+    // Вызов хранимой процедуры
+    vTemp := StoredProc('P_SYS_LOG_INSERT', ':JOURNAL_INP, :COMPUTER_NAME_INP, :EVENT_TYPE_INP, :TEXT_INP',
+       VarArrayOf([ALogName, GetComputerNetName, iEventType, ALogText]), 'RESULT_OUT');
+    if vTemp = NULL then
+      Exit;
+  except
+    on E: Exception do
+    begin
+      SaveLogToFile('SQL', 'Ошибка в процедуре SaveLogToDB (пишем в файл)' + CRLF + E.Message, 'err');
+      SaveLogToFile(ALogName, ALogText, ALogStatus);
+    end;
+  end;
+  if (vTemp = NULL) or (vTemp = 0) then
+    SaveLogToFile(ALogName, ALogText, ALogStatus);
 end;
 
 procedure TdmDB.ExtractionDataFromDataSet(AFields, AValues: string;

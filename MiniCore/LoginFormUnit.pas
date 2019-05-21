@@ -4,7 +4,7 @@ unit LoginFormUnit;
 
 {******************************************************************************}
 {                                                                              }
-{ Unit: User Authentication Window Module                                      }
+{  Unit: User Authentication Window Module                                     }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -17,7 +17,7 @@ unit LoginFormUnit;
 {  Modified: 10.09.2010                                                        }
 {  Modified: 28.07.2011, 15.11.2011                                            }
 {  Modified: 16.02.2012, 19.10.2012                                            }
-{  Modify: 15.05.2019 (Lazarus)                                                }
+{  Modified: 15.05.2019 (Lazarus)                                              }
 {                                                                              }
 {******************************************************************************}
 
@@ -27,10 +27,10 @@ interface
 {$I Defines.inc}
 
 uses
-  LCLIntf, LCLType,
+  LCLIntf, LCLType, LMessages,
   {$IFDEF WINDOWS}windows,{$ENDIF}
-  Forms, Graphics, Messages, SysUtils, Classes, ActnList, ImgList,
-  Controls, StdCtrls, ExtCtrls, Buttons, ComboEx;
+  Forms, Graphics, SysUtils, Classes, ActnList, ImgList, Controls,
+  StdCtrls, ExtCtrls, Buttons, ComboEx;
 
 type
 
@@ -38,30 +38,30 @@ type
 
    TLoginForm = class(TForm)
     imLogin: TImage;
-    cbxUserName: TComboBox;
+    lblDBList: TLabel;
     cbxDBList: TComboBox;
+    sbSettingsDB: TSpeedButton;
+    lblUserName: TLabel;
+    cbxUserName: TComboBox;
+    sbUserName: TSpeedButton;
+    lblPassword: TLabel;
     lePassword: TEdit;
+    sbPassword: TSpeedButton;
+    lblCurrentUserRole: TLabel;
     cbxCurrentUserRole: TComboBoxEx;
-    lbCurrentUserRole: TLabel;
+    lblEmail: TLabel;
     ilRole: TImageList;
-    cbxSavePassword: TCheckBox;
+    chbxSavePassword: TCheckBox;
     btOK: TBitBtn;
     btCancel: TBitBtn;
-    sbSettingsDB: TSpeedButton;
     alLogin: TActionList;
     acRefreshDBList: TAction;
-    sbUserName: TSpeedButton;
     acDeleteUserName: TAction;
     acSettingsDB: TAction;
     il16: TImageList;
     acChangeUserPassword: TAction;
-    sbPassword: TSpeedButton;
     acGetRole: TAction;
-    lbDBList: TLabel;
-    lbUserName: TLabel;
-    lbPassword: TLabel;
     lblProtect: TLabel;
-    lblEmail: TLabel;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormShow(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
@@ -193,7 +193,7 @@ begin
   cbxCurrentUserRole.ItemIndex := 0;
 
   slRoles.Free;
-//  lbDBList.Caption := string(Addr(cbxCurrentUserRole.ItemsEx.ComboItems[4].Data^));
+//  lblDBList.Caption := string(Addr(cbxCurrentUserRole.ItemsEx.ComboItems[4].Data^));
 
   {try
     TempStream := TMemoryStream.Create;
@@ -260,7 +260,7 @@ begin
   lblProtect.Show;
   lblProtect.Font.Color := clRed;
   lblProtect.Font.Style := [fsBold];
-  lblProtect.Caption := 'НЕТ ЗАЩИТЫ';
+  lblProtect.Caption := MSG_NoProtection;
   {$ENDIF}
 
   lblEmail.Caption := 'Написать в службу тех.поддержки ' + GlobalDeveloperEmailAddress;
@@ -298,18 +298,20 @@ procedure TLoginForm.CheckFormVis;
 begin
   if siIdent.isVisibleLoginForm then
   begin
-    MessageBox(Self.Handle,
-               'Попытка несанкционированного доступа к окну. Приложение будет закрыто!',
-               MSG_Warning, MB_OK or MB_ICONERROR);
+    MessageBox(Self.Handle, PChar(MSG_UnauthorizedAccessAttemptWindow),
+               PChar(MSG_Warning), MB_OK or MB_ICONERROR);
     // журнал сеансов
-    SaveLogToFile('Session', 'Попытка несанкционированного доступа к окну.', 'wrn');
+    SaveLogToFile('Session', MSG_UnauthorizedAccessAttemptWindow, 'wrn');
+    {$IFDEF DEBUG}
+    {$ELSE}
     ExitProcess(0);
+    {$ENDIF}
   end;
 end;
 
 procedure TLoginForm.lePasswordKeyPress(Sender: TObject; var Key: Char);
 begin
-  {$if defined(LOGIN_PROTECT)}
+  {$IFDEF LOGIN_PROTECT}
   if sPass = EmptyStr then
     lePassword.Clear;
   // Псевдоввод в эдит
@@ -330,12 +332,12 @@ begin
     lePassword.Clear;
   {if lePassword.Text = EmptyStr then
     sPass := EmptyStr; //}
-  {$else}
+  {$ELSE}
   sPass := lePassword.Text + Key;
   case Ord(Key) of
     VK_RETURN: btOK.Click;
   end;
-  {$endif}
+  {$ENDIF}
 end;
 
 procedure TLoginForm.lePasswordKeyUp(Sender: TObject; var Key: Word;
@@ -354,25 +356,24 @@ begin
   if Trim(cbxDBList.Text) = EmptyStr then
   begin
     ModalResult := mrRetry;
-    MessageBox(Self.Handle, 'Необходимо выбрать конфигурацию БД.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar(MSG_MustSelectDbConfig),
+                           MSG_Information, MB_OK_INFO);
     cbxDBList.SetFocus;
     Exit;
   end;
   if Trim(sUserNameDBMS) = EmptyStr then
   begin
     ModalResult := mrRetry;
-    MessageBox(Self.Handle,
-               'Необходимо ввести имя пользователя или выбрать из списка.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar(MSG_MustEnterUserName),
+                           MSG_Information, MB_OK_INFO);
     cbxUserName.SetFocus;
     Exit;
   end;
   if Trim(sPass) = EmptyStr then
   begin
     ModalResult := mrRetry;
-    MessageBox(Self.Handle, 'Необходимо ввести пароль.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar(MSG_MustEnterPassword),
+                           MSG_Information, MB_OK_INFO);
     lePassword.SetFocus;
     lePassword.Clear;
     Exit;
@@ -410,7 +411,7 @@ end;
 procedure TLoginForm.cbxUserNameExit(Sender: TObject);
 begin
   sUserNameDBMS := arCyr2LatUp(UpperCase(Trim(cbxUserName.Text)), '', '');
-  lbUserName.Hint := sUserNameDBMS;
+  lblUserName.Hint := sUserNameDBMS;
   acGetRole.Execute;
 end;
 
@@ -440,7 +441,7 @@ begin
     if ValueExists('Users', Trim(cbxUserName.Text)) then
     begin
       sRole := ReadString('Users', Trim(cbxUserName.Text), 'role_user');
-      for iCounter := 0 to cbxCurrentUserRole.ItemsEx.Count - 1 do
+      for iCounter := 0 to cbxCurrentUserRole.Items.Count - 1 do
       try
         sCurrRole := string(PAnsiChar(Addr(cbxCurrentUserRole.ItemsEx.ComboItems[iCounter].Data^)));
         if sCurrRole = sRole then
@@ -475,7 +476,8 @@ end;
 procedure TLoginForm.cbxDBListChange(Sender: TObject);
 begin
   TextChange(Sender);
-  CurrentDBConfig := cbxDBList.Items.Strings[cbxDBList.ItemIndex];
+  if cbxDBList.Items.Count > 0 then
+    CurrentDBConfig := cbxDBList.Items.Strings[cbxDBList.ItemIndex];
   sPass := EmptyStr;
   lePassword.Text := sPass;
 end;
@@ -490,14 +492,13 @@ procedure TLoginForm.acDeleteUserNameExecute(Sender: TObject);
 begin
   if Trim(cbxUserName.Text) = EmptyStr then
   begin
-    MessageBox(Self.Handle,
-               'Необходимо выбрать пользователя из списка.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar('Необходимо выбрать пользователя из списка.'),
+                           MSG_Information, MB_OK_INFO);
     cbxUserName.SetFocus;
     Exit;
   end;
-  if MessageBox(Self.Handle,'Удалить пользователя из списка?', MSG_Confirmation,
-    MB_YESNO or MB_ICONQUESTION) <> IDYES then
+  if Application.MessageBox(PChar('Удалить пользователя из списка?'),
+      MSG_Confirmation, MB_YESNO or MB_ICONQUESTION) <> IDYES then
     Exit;
 
   with ifConfig do
@@ -506,7 +507,10 @@ begin
     if ValueExists('Users', cbxUserName.Text) then
     begin
       DeleteKey('Users', Trim(cbxUserName.Text));
-      cbxUserName.Items.Delete(cbxUserName.ItemIndex);
+      if cbxUserName.Items.Count > 0 then
+      begin
+        cbxUserName.Items.Delete(cbxUserName.ItemIndex);
+      end;
       cbxUserName.SetFocus;
     end;
   end;
@@ -556,16 +560,15 @@ procedure TLoginForm.acChangeUserPasswordExecute(Sender: TObject);
 begin
   if Trim(cbxDBList.Text) = EmptyStr then
   begin
-    MessageBox(Self.Handle, 'Необходимо выбрать конфигурацию БД.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar(MSG_MustSelectDbConfig),
+                          MSG_Information, MB_OK_INFO);
     cbxDBList.SetFocus;
     Exit;
   end;
   if Trim(cbxUserName.Text) = EmptyStr then
   begin
-    MessageBox(Self.Handle,
-               'Необходимо ввести имя пользователя или выбрать из списка.',
-               MSG_Information, MB_OK_INFO);
+    Application.MessageBox(PChar(MSG_MustEnterUserName),
+                           MSG_Information, MB_OK_INFO);
     cbxUserName.SetFocus;
     Exit;
   end;

@@ -4,7 +4,7 @@ unit IdentUnit;
 
 {******************************************************************************}
 {                                                                              }
-{ Unit: User Identification Module                                             }
+{  Unit: User Identification Module                                            }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -24,8 +24,8 @@ unit IdentUnit;
 interface
 
 uses
-  LCLIntf, LCLType, LMessages, Messages, SysUtils, Variants, Classes, Controls,
-  Forms, Dialogs, StdCtrls, StrUtils, DB, GammaUnit;
+  LCLIntf, LCLType, LMessages, Classes, Controls, Forms, Dialogs,
+  Variants, StdCtrls, StrUtils, SysUtils, DB, GammaUnit;
 
 //const
 //  KEY = 314159;  // 465464;     //1325568
@@ -67,7 +67,10 @@ implementation
 {$I Defines.inc}
 
 uses
-  LoginFormUnit, Math, ConstsUnit, UtilsUnit, DBUnit, IniFiles,
+  {$IFDEF LOGIN}
+  LoginFormUnit,
+  {$ENDIF}
+  Math, ConstsUnit, UtilsUnit, DBUnit, IniFiles,
   ComCtrls, MessageFormUnit;
 
 { TSimpleIdent }
@@ -282,9 +285,9 @@ begin
     // Заполнение комбокса
     cbxUserName.ItemIndex := -1;
     FillUsersList(cbxUserName.Items);
-    if cbxUserName.Items.Count > 0 then
+    if cbxUserName.DropDownCount > 0 then
       cbxUserName.ItemIndex := 0;
-    Caption := 'Начать сеанс. [' + AppTitle + ']';
+    Caption := MSG_StartSession + '. [' + AppTitle + ']';
     // цикл
     repeat
       //Application.BringToFront;
@@ -352,7 +355,7 @@ begin
   
   except
     on E: Exception do
-      SaveLogToFile('Application', 'Ошибка в методе TSimpleIdent.ChangeLogin: ' + E.Message, 'err');
+      SaveLogToFile('Application', 'Error in the method TSimpleIdent.ChangeLogin: ' + E.Message, 'err');
   end;
 end;
 

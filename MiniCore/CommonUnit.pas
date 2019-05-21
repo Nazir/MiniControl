@@ -1,10 +1,10 @@
-unit GlobalsUnit;
+unit CommonUnit;
 
 {$mode objfpc}{$H+}
 
 {******************************************************************************}
 {                                                                              }
-{ Unit: Global declarations                                                    }
+{ Unit: Common declarations                                                    }
 {                                                                              }
 {  Copyright: Nazir © 2002-2019                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
@@ -28,9 +28,9 @@ uses
 
 type
 
-  { TdmGlobals }
+  { TdmCommon }
 
-  TdmGlobals = class(TDataModule)
+  TdmCommon = class(TDataModule)
     PopupNotifierMain: TPopupNotifier;
     procedure DataModuleCreate(Sender: TObject);
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
@@ -44,7 +44,7 @@ type
   procedure ShowNotepad(AFileName: string; AOwner: TComponent = nil);
 
 var
-  dmGlobals: TdmGlobals;
+  dmCommon: TdmCommon;
 
 implementation
 
@@ -54,14 +54,14 @@ uses
 {$R *.lfm}
 {$I Defines.inc}
 
-{ TdmGlobals }
+{ TdmCommon }
 
-procedure TdmGlobals.DataModuleCreate(Sender: TObject);
+procedure TdmCommon.DataModuleCreate(Sender: TObject);
 begin
-  PopupNotifierMain.Title := 'Информация';
+  PopupNotifierMain.Title := MSG_Information;
 end;
 
-procedure TdmGlobals.ApplicationEventsException(Sender: TObject;
+procedure TdmCommon.ApplicationEventsException(Sender: TObject;
   E: Exception);
 begin
   SaveLogToFile('Application', E.Message, 'err');
@@ -74,7 +74,7 @@ begin
     ShowMessageForm('Ошибка', 2, E.Message);
 end;
 
-procedure TdmGlobals.CallHelp;
+procedure TdmCommon.CallHelp;
 var
   sTemp: string;
 begin
@@ -86,7 +86,7 @@ begin
                MSG_Information, MB_OK_INFO);
 end;
 
-//procedure TdmGlobals.GetCopyData(var AMessage: TWMCopyData);
+//procedure TdmCommon.GetCopyData(var AMessage: TWMCopyData);
 //const
 //  MAX_BUFFER = 65535;
 //var
@@ -153,7 +153,7 @@ begin
   end;
 end;
 
-procedure TdmGlobals.StatusBarFill(var AStatusBar: TStatusBar);
+procedure TdmCommon.StatusBarFill(var AStatusBar: TStatusBar);
 begin
   // <16.04.2012> WP Nazir
   with AStatusBar do

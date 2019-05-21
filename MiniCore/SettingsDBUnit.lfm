@@ -65,11 +65,23 @@ object SettingsDBForm: TSettingsDBForm
       TabOrder = 0
     end
     object sePort: TSpinEdit
-      Left = 368
+      Left = 369
       Height = 21
-      Top = 17
+      Top = 16
       Width = 70
+      Anchors = [akTop, akRight]
+      MaxValue = 65535
       TabOrder = 1
+    end
+    object lblPort: TLabel
+      Left = 369
+      Height = 13
+      Top = 0
+      Width = 25
+      Anchors = [akTop, akRight]
+      Caption = 'Порт'
+      FocusControl = cbxServerNameDB
+      ParentColor = False
     end
   end
   object lbDBList: TListBox

@@ -64,7 +64,7 @@ begin
   end;
 
   try
-    rsTemp := TResourceStream.Create(0,'PROGRAMLOGO', RT_RCDATA);
+    rsTemp := TResourceStream.Create(0, 'PROGRAMLOGO', RT_RCDATA);
     imProgramLogo.Picture.PNG.LoadFromStream(rsTemp);
     {imProgramLogo.Canvas.LineTo(419, 0);
     imProgramLogo.Canvas.LineTo(419, 339);

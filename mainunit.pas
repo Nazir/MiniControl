@@ -73,7 +73,7 @@ implementation
 
 {$R *.lfm}
 
-uses GlobalsUnit;
+uses CommonUnit;
 
 { TMainForm }
 
@@ -92,8 +92,8 @@ begin
          DBText1.DataSource := dsMain;
          DBText1.DataField := 'name';
          //ExecSQL;
-         //dmGlobals.PopupNotifierMain.Text := 'Query executed successfully!';
-         //dmGlobals.PopupNotifierMain.Show;
+         //dmCommon.PopupNotifierMain.Text := 'Query executed successfully!';
+         //dmCommon.PopupNotifierMain.Show;
       except
         ShowMessage('Query error');
       end;

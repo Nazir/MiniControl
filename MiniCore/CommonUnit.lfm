@@ -1,4 +1,4 @@
-object dmGlobals: TdmGlobals
+object dmCommon: TdmCommon
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   left = 585
