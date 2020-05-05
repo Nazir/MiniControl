@@ -6,7 +6,7 @@ unit ExecutionFormUnit;
 {                                                                              }
 {  Unit: Execution module                                                      }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir © 2002-2020                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
 {  Разработчик: Хуснутдинов Назир Каримович                                    }
 {  Email: naziron@gmail.com                                                    }
@@ -16,10 +16,9 @@ unit ExecutionFormUnit;
 {  Modified: 14.04.2011                                                        }
 {  Modified: 20.02.2012, 12.04.2012                                            }
 {  Created: 17.05.2019 (Lazarus)                                               }
-{  Modified: 17.05.2019                                                        }
+{  Modified: 17.05.2019, 05.05.2020                                            }
 {                                                                              }
 {******************************************************************************}
-
 
 interface
 
@@ -28,7 +27,7 @@ uses
 
 type
   TExecutionForm = class(TForm)
-    AnimateConnect: TImage;
+    imConnect: TImage;
     lblInfo: TLabel;
     ShapeRange: TShape;
   private
@@ -48,8 +47,8 @@ implementation
 {$R *.lfm}
 {$I Defines.inc}
 
-{uses
-  ConstsUnit; //}
+uses
+  ConstsUnit;
 
 procedure ExecutionFormShow(ACaption: string = ''; AShowModal: Boolean = False;
   AColor: Integer = -1; AOwner: TComponent = nil);
@@ -57,13 +56,14 @@ var
   CaptW: Integer; //}
 begin
   if AOwner = nil then
-    AOwner := Application;
+    AOwner := Application; //}
   {if ExecutionForm = nil then
     ExecutionForm := TExecutionForm.Create(Application); //}
   if Assigned(ExecutionForm) then
   begin
     if ExecutionForm.Owner <> AOwner then
       ExecutionForm.Free;
+      //FreeAndNil(ExecutionForm);
   end;
 
   if not Assigned(ExecutionForm) then
@@ -75,7 +75,7 @@ begin
   //<12.04.2010> WP Nazir
   with ExecutionForm do
   try
-    Caption := 'Выполнение';
+    Caption := MSG_Execution;
     ShapeRange.Pen.Color := AColor;
     Font.Color := ShapeRange.Pen.Color;
     if ACaption = '' then
@@ -83,8 +83,8 @@ begin
     else
       lblInfo.Caption := ACaption;
     CaptW := Canvas.TextWidth(ACaption);
-    ClientWidth := CaptW + AnimateConnect.Width + 4*8;
-    //AnimateConnect. Animate := True;
+    ClientWidth := CaptW + imConnect.Width + 4*8;
+    //imConnect.Animate := True;
     Refresh;
     Repaint;
     if AShowModal then
@@ -98,7 +98,7 @@ begin
     Application.ProcessMessages;
     Refresh;
   finally
-  end;       //}
+  end; //}
 end;
 
 procedure ExecutionFormClose;
@@ -124,7 +124,7 @@ begin
       AColor := 0;
     with ExecutionForm do
     try
-      Caption := 'Выполнение';
+      Caption := MSG_Execution;
       Font.Color := AColor;
       ShapeRange.Pen.Color := Font.Color;
       if ACaption = '' then
@@ -132,8 +132,8 @@ begin
       else
         lblInfo.Caption := ACaption;
       CaptW := Canvas.TextWidth(ACaption);
-      ClientWidth := CaptW + AnimateConnect.Width + 4*8;
-      //AnimateConnect.Animate := True;
+      ClientWidth := CaptW + imConnect.Width + 4*8;
+      // imConnect.Animate := True;
       if CanFocus then
       begin
         Show;
@@ -144,7 +144,7 @@ begin
       Application.ProcessMessages;
       Refresh;
     finally
-    end;       //}
+    end; //}
   end;
 end;
 

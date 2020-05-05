@@ -3,8 +3,8 @@ object dmDB: TdmDB
   OnDestroy = DataModuleDestroy
   OldCreateOrder = False
   Height = 471
-  HorizontalOffset = 383
-  VerticalOffset = 152
+  HorizontalOffset = 803
+  VerticalOffset = 180
   Width = 677
   PPI = 96
   object DatabaseMain: TPQConnection
@@ -16,9 +16,457 @@ object dmDB: TdmDB
     top = 16
   end
   object DataSetMain: TSQLQuery
-    FieldDefs = <>
+    FieldDefs = <    
+      item
+        Name = 'row'
+        DataType = ftLargeint
+        Precision = -1
+      end    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'username'
+        DataType = ftUnknown
+        Precision = -1
+      end    
+      item
+        Name = 'nickname'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'user_name'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'email'
+        DataType = ftUnknown
+        Precision = -1
+      end    
+      item
+        Name = 'phone'
+        DataType = ftBCD
+        Precision = -1
+      end    
+      item
+        Name = 'password'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'salt'
+        DataType = ftUnknown
+        Precision = -1
+      end    
+      item
+        Name = 'enabled'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'locked'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'access_lock_info'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'access_lock_style'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'expired'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'expires_at'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'password_requested_at'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'credentials_expired'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'credentials_expire_at'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'id_natural_person'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'id_subdivision'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'last_login'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'default_loc'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'max_count_session'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ip_address'
+        DataType = ftString
+        Precision = -1
+        Size = 39
+      end    
+      item
+        Name = 'dbms_user'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'note'
+        DataType = ftString
+        Precision = -1
+        Size = 5120
+      end    
+      item
+        Name = '_date_create'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = '_user_create'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = '_date_update'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = '_user_update'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = '_uuid'
+        DataType = ftGuid
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = '_version'
+        DataType = ftLargeint
+        Precision = -1
+      end    
+      item
+        Name = '_read_only'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = '_deleted'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'pa_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'pa_name'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'pa_code'
+        DataType = ftString
+        Precision = -1
+        Size = 13
+      end    
+      item
+        Name = 'pa_index'
+        DataType = ftString
+        Precision = -1
+        Size = 6
+      end    
+      item
+        Name = 'pa_gninmb'
+        DataType = ftString
+        Precision = -1
+        Size = 4
+      end    
+      item
+        Name = 'region_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'region_code'
+        DataType = ftString
+        Precision = -1
+        Size = 2
+      end    
+      item
+        Name = 'region_name'
+        DataType = ftString
+        Precision = -1
+        Size = 64
+      end    
+      item
+        Name = 'np_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'np_surname'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'np_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'np_patronymic'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'np_phones'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'np_sex'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'np_date_of_birth'
+        DataType = ftDate
+        Precision = -1
+      end    
+      item
+        Name = 'np_birth_place'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'np_id_family_status'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'np__date_create'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'np__id_user_create'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'np__date_update'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'np__id_user_update'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'np__uuid'
+        DataType = ftGuid
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'np__deleted'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'fs_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'fs_name'
+        DataType = ftString
+        Precision = -1
+        Size = 40
+      end    
+      item
+        Name = 'uea_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uea_id_user'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uea_id_user_external_auth_type'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uea_token'
+        DataType = ftString
+        Precision = -1
+        Size = 512
+      end    
+      item
+        Name = 'uea_user_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'uea_user_id'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'uea_expiredin'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'uea__date_create'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'uea__id_user_create'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uea__date_update'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'uea__id_user_update'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uea__uuid'
+        DataType = ftGuid
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'uea__deleted'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'ueat_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ueat_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ueat_url'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ueat_deleted'
+        DataType = ftBoolean
+        Precision = -1
+      end    
+      item
+        Name = 'roles'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'uph_id_user'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uph_id_photo'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'uph_ordering'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ph_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'ph_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'ph_path'
+        DataType = ftString
+        Precision = -1
+        Size = 2048
+      end    
+      item
+        Name = 'ph_note'
+        DataType = ftString
+        Precision = -1
+        Size = 5120
+      end>
     Database = DatabaseMain
     Transaction = TransactionMain
+    SQL.Strings = (
+      'SELECT * FROM public.v_users;'
+    )
     Params = <>
     left = 48
     top = 240

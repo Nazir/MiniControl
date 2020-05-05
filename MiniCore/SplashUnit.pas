@@ -20,7 +20,7 @@ unit SplashUnit;
 interface
 
 uses
-  LCLIntf, LCLType, LMessages, Messages, Classes, Forms, Controls, StdCtrls,
+  LCLIntf, LCLType, Messages, Classes, Forms, Controls, StdCtrls,
   ExtCtrls, SysUtils, Graphics, ComCtrls, ConstsUnit;
 
 type

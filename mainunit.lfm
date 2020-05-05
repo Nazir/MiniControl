@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 357
+  Left = 838
   Height = 550
-  Top = 148
+  Top = 177
   Width = 795
   Caption = 'MainForm'
   ClientHeight = 530
@@ -9,7 +9,7 @@ object MainForm: TMainForm
   Menu = mmMain
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.0.8.0'
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23

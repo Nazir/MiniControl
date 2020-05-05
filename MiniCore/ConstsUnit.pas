@@ -6,7 +6,7 @@ unit ConstsUnit;
 {                                                                              }
 {  Unit: Projects Group Global Constants Module                                }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir © 2002-2020                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
 {  Разработчик: Хуснутдинов Назир Каримович                                    }
 {  Email: naziron@gmail.com                                                    }
@@ -16,7 +16,7 @@ unit ConstsUnit;
 {  Modified: 09.05.2009, 17.05.2009, 07.09.2009, 06.10.2009                    }
 {  Modified: 04.04.2010                                                        }
 {  Created: 16.05.2019 (Lazarus)                                               }
-{  Modified: 20.05.2019                                                        }
+{  Modified: 20.05.2019, 05.05.2020                                            }
 {                                                                              }
 {******************************************************************************}
 
@@ -238,12 +238,16 @@ const
   MSG_InitMainWindow      = 'Инициализация главного окна...';
   MSG_RunningApplication  = 'Запуск приложения...';
 
+  MSG_Execution           = 'Выполнение';
+
   MSG_UnauthorizedAccessAttemptWindow = 'Попытка несанкционированного доступа к окну. Приложение будет закрыто!';
   MSG_StartSession        = 'Начать сеанс';
   MSG_YouHaveNoRights     = 'У Вас нет прав!';
   MSG_MustSelectDbConfig  = 'Необходимо выбрать конфигурацию БД.';
   MSG_MustEnterUserName   = 'Необходимо ввести имя пользователя или выбрать из списка.';
   MSG_MustEnterPassword   = 'Необходимо ввести пароль.';
+  // База данных
+  MSG_ConnectingToDB      = 'Подключение к серверу БД.';
   {$ELSE}
   MSG_Information         = 'Information';
   MSG_Warning             = 'Warning';
@@ -282,12 +286,16 @@ const
   MSG_InitMainWindow      = 'Initialize the main window...';
   MSG_RunningApplication  = 'Running application...';
 
+  MSG_Execution           = 'Execution';
+
   MSG_UnauthorizedAccessAttemptWindow = 'Unauthorized access attempt to the window. The app will be closed!';
   MSG_StartSession        = 'Start a session';
   MSG_YouHaveNoRights     = 'You have no rights!';
   MSG_MustSelectDbConfig  = 'You must select a database configuration.';
   MSG_MustEnterUserName   = 'You must enter a user name or select from the list.';
   MSG_MustEnterPassword   = 'You must enter a password.';
+  // Database
+  MSG_ConnectingToDB      = 'Connecting to the DB server.';
   {$ENDIF}
 
 // Иконка сообщения + кнопки

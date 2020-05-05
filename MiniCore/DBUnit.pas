@@ -6,7 +6,7 @@ unit DBUnit;
 {                                                                              }
 {  Unit: Database control module                                               }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir © 2002-2020                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
 {  Разработчик: Хуснутдинов Назир Каримович                                    }
 {  Email: naziron@gmail.com                                                    }
@@ -19,7 +19,7 @@ unit DBUnit;
 {  Modified: 01.04.2010, 18.05.2010, 13.10.2010                                }
 {  Modified: 01.03.2011, 25.07.2011, 19.12.2011                                }
 {  Created: 15.05.2019 (Lazarus)                                               }
-{  Modified: 16.05.2019                                                        }
+{  Modified: 16.05.2019, 05.05.2020                                            }
 {                                                                              }
 {******************************************************************************}
 
@@ -330,7 +330,7 @@ begin
   with TConnectThread.Create() do
     OnTerminate := @ConnectingThreadDone;
 
-  ExecutionFormShow('Соединение с сервером БД.', True);
+  //ExecutionFormShow(MSG_ConnectingToDB, True);
 
  // finally
    // ExecutionFormClose;

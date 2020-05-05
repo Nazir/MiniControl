@@ -6,14 +6,14 @@ program MiniControl;
 {                                                                              }
 {  Project: MiniControl                                                        }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir © 2002-2020                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
 {  Разработчик: Хуснутдинов Назир Каримович                                    }
 {  Email: naziron@gmail.com                                                    }
 {  Git: https://github.com/Nazir                                               }
 {                                                                              }
 {  Create: 15.05.2019                                                          }
-{  Modify: 15.05.2019                                                          }
+{  Modify: 05.05.2020                                                          }
 {                                                                              }
 {******************************************************************************}
 
@@ -26,7 +26,7 @@ uses
   Forms, Graphics,
   lazcontrols,
   ConstsUnit, UtilsUnit, ImagesUnit, CommonUnit,
-  IdentUnit, SplashUnit, MainUnit;
+  IdentUnit, SplashUnit, DBUnit, MainUnit;
 
 {$R *.res}
 {$R Images.res}
@@ -40,12 +40,12 @@ begin
   Application.Scaled:=True;
 
   //hMutex := CreateMutex(nil, False, 'Nazir:MiniControl');
-  {if  GetLastError = ERROR_ALREADY_EXISTS then
+  {if GetLastError = ERROR_ALREADY_EXISTS then
   begin
     MessageBox(0, 'Нельзя запускать вторую копию программы!',
                SWarning, MB_OK_EXCL);
     Halt(0);
-  end;     //}
+  end; //}
 
   // Основные цвета проекта
   clMain := clWhite;
@@ -76,6 +76,7 @@ begin
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
     lbInitStatus.Caption := MSG_InitModuleDBMS;
+    Application.CreateForm(TdmDB, dmDB);
     pbInitStatus.Position := pbInitStatus.Position + 10;
 
     lbInitStatus.Caption := MSG_UserIdentification;

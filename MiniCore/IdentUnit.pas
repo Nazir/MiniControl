@@ -6,7 +6,7 @@ unit IdentUnit;
 {                                                                              }
 {  Unit: User Identification Module                                            }
 {                                                                              }
-{  Copyright: Nazir © 2002-2019                                                }
+{  Copyright: Nazir © 2002-2020                                                }
 {  Development: Nazir K. Khusnutdinov (aka Naziron or Wild Pointer)            }
 {  Разработчик: Хуснутдинов Назир Каримович                                    }
 {  Разработчик: Смолин Николай Геннадьевич (SnugForce)                         }
@@ -18,6 +18,7 @@ unit IdentUnit;
 {  Modified: 03.06.2009 - авторизация ч/з СУБД Nazir                           }
 {  Modified: 14.05.2012 - Из русского в латиницу                               }
 {  Modified: 16.05.2019 (Lazarus)                                              }
+{  Modified: 05.05.2020                                                        }
 {                                                                              }
 {******************************************************************************}
 
@@ -79,7 +80,11 @@ constructor TSimpleIdent.Create;
 begin
   inherited;
   GM := TSimpleGamma.Create;
+  {$IFDEF DEBUG}
+  MinPasswordLength := 1;
+  {$ELSE}
   MinPasswordLength := 8;
+  {$ENDIF}
   // Установка прав в ноубоди
   LogOut;
 end;
